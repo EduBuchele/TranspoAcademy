@@ -1,6 +1,6 @@
-package br.com.cursojava.exercicio_dois;
+package br.com.cursojava.exercicio;
 
-public class ExercicioSeis {
+public class Exercicio06 {
 //	6) Utilizando a classe Math, crie um programa que calcule e apresente o maior numero entre 10,20,15;
 	public static void main(String[] args) {
 

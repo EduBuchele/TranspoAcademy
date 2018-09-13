@@ -1,4 +1,4 @@
-package br.com.cursojava;
+package br.com.cursojava.exercicios;
 
 import java.util.Scanner;
 
@@ -19,9 +19,13 @@ public class Exercicio07 {
 
 		teclado.close();
 
-		System.out.println("A media das notas é : " + ((n1 + n2 + n3) / 3));
-		System.out.println("A maior nota é: " + Math.max(Math.max(n1, n2), n3));
-		System.out.println("A menorr nota é: " + Math.min(Math.min(n1, n2), n3));
+		double mediaNotas = (n1 + n2 + n3) / 3;
+		double notaMaisBaixa = Math.min(Math.min(n1, n2), n3);
+		double notaMaisAlta = Math.max(Math.max(n1, n2), n3);
+		
+		System.out.println("A media das notas é : " + mediaNotas);
+		System.out.println("A maior nota é: " + notaMaisAlta);
+		System.out.println("A menor nota é: " + notaMaisBaixa);
 
 	}
 

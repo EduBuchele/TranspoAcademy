@@ -1,6 +1,6 @@
-package br.com.cursojava.exercicio_dois;
+package br.com.cursojava.exercicio;
 
-public class ExercicioDois {
+public class Exercicio02 {
 //2) Dado um circulo de 30cm de diametro. Calcule e apresente o vclor da area deste circulo.
 	public static void main(String[] args) {
 

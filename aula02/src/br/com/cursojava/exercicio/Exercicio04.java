@@ -1,6 +1,6 @@
-package br.com.cursojava.exercicio_dois;
+package br.com.cursojava.exercicio;
 
-public class ExercicioQuatro {
+public class Exercicio04 {
 //4) Dado que um veiculo percorre uma distancia de 200km em 240min. caclule a velocidade media em km/h
 	public static void main(String[] args) {
 

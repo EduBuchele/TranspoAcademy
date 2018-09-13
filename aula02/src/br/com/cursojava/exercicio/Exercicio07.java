@@ -1,6 +1,6 @@
-package br.com.cursojava.exercicio_dois;
+package br.com.cursojava.exercicio;
 
-public class ExercicioSete {
+public class Exercicio07 {
 //	7) Utilizando a classe Math crie um programa que apresente o valor inteiro referente ao numero 13.36543;
 	public static void main(String[] args) {
 

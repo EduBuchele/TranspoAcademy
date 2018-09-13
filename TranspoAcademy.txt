@@ -1,0 +1,156 @@
+Transpo Academy
+
+Prof. Felipe da Rosa Oliveira
+9 9602-9682
+
+10/09/2018
+Java:
+Linguagem Programação
+	- Proposito Geral;
+	- Alto Nivel;
+	- Orientada a Objetos;
+		- Propriedades 
+		- Ações;	
+	- Fortemente Tipada;
+	- Compilada e Interpretada;
+
+Aula01: 10/09/2018
+	Variaveis e Setup Inicial
+Aula02: 11/09/2018
+	Operadores Matematicos
+Aula03: 12/09/2018
+	
+Variavel:
+Nome dado a um endereço de memoria;
+
+variaveis primitivas = armazenam direto na memoria principal;
+variaveis objeto = armazenam na memoria heap;
+
+Tamanho		Primitivo	Wrapper
+1byte		byte		Byte
+		boolean		Boolean
+
+2byte 		short		Short
+		char		Character
+
+4bytes 		int		Integer
+		float		Float
+
+8 bytes 	long		Long
+		double		Double
+
+
+" Machine Learning
+tirar o print e processar a imagem "
+
+Exercicios Aula01
+Dado as variaveis abaixo, escreva um programa que apresente o resultado das seguintes operações:
+int a = 10;
+int b = 9;
+int c = 8;
+
+1) Calcule a média dos numeros;
+2) Calcule a soma dos numeros;
+3) Calcule a soma dos numeros dividios pela media;
+4) Calcule o resto da divisao de a por b;
+5) Calcule a soma de todos os numeros subtraida o resultado da divisao de c por 4.
+
+Exercicios Aula02
+
+1) Dado um retangulo de base 20 e altura 30. Escreva um programa que calcule e apresente os seguintes valores:
+a) A area do retangulo
+b) O perimetro do retangulo
+
+2) Dado um circulo de 30cm de diametro. Calcule e apresente o vclor da area deste circulo.
+
+3) Dado as notas 10, 7, 5, 9, 10, 7, 8, 10 , 10,10. Calcule e apresente a soma e a média das notas.
+
+4) Dado que um veiculo percorre uma distancia de 200km em 240min. caclule a velocidade media em km/h
+
+5) Escreva um programa que calcule o valor de 7 elevado na potencia de 5;
+
+6) Utilizando a classe Math, crie um programa que calcule e apresente o maior numero entre 10,20,15;
+
+7) Utilizando a classe Math crie um programa que apresente o valor inteiro referente ao numero 13.36543;
+
+8) Utilizando a calsse Math Crie uym programa e escreva o valor absoluto dos numeros -10, 20, -50 e -1000;
+
+
+Aula3: 12/09/2018
+
+Conversao String -> Inteiro
+Integer.parseInt
+Conversao String -> Double
+Double.parseDouble
+https://docs.oracle.com/javase/8/docs/api/
+metodos de conversao
+parseInt
+toString
+valueOf
+Cada classe wrapper trabalha conversoes de primitivos para objetos e strings
+
+1) Escreva um programa que solicite dois numeros inteiro e em seguida escreva o valor do maior numero informado. Utilize Math.max.
+
+2) Escreva um programa que solicite 3 numeros reais e em seguida apresente o resultado da media dos numeros informados.
+
+3) Escreva um programa que solicite a idade de um usuario e em seguida apresente a idade do usuario após 20 anos.
+
+4) Escreva um programa que solicite a idade do usuario em anos e apresente o valor da idade informada em meses;(ex. 1ano = 12meses)
+
+5) Escreva um programa que solicite a idade do usuario em dias e em seguida aprense o valor em dias meses e anos. considere que cada mes possui 30 dias e que um ano equivale a 12 meses
+
+6) Escreva um programa que solicite o valor de ium produto e o percentual de desconto, em seuida o programa deve apresentar o valor do desconto e o valor do produto apos a aplicação do desconto.
+
+7) Escreva um programa que solicite 3 notas e em seguida calcule e apresente os seguintes dados:
+a) O valor da média
+b) O valor da maior nota( Math.max)
+c) O valor da menor nota (Math.min)
+
+8) Escreva um programa que solicite a base e a altura de um triangulo e em seguida calcule a area. (b.h)/2
+
+9) Escreva um programa que solicite 3 notas e em seguida calcule a media ponderada aplicando os pesos 2,3,5 respectivamente. Ao final o programa deve apresentar o resultado da media calculada.
+
+10) Escreva um programa que solicite o peso e a altura de uma pessoa e em seguida calcule o IMC desta pessoa. IMC = peso/(altura*altura)
+
+Aula04 - 13/09/2018
+
+////////////////////////////////////////////////////////////////////////////////////////////
+Trabalhando com GIT 
+
+// Inicia o Repositorio
+git init 
+//descobre o status do projeto
+git status
+//buscar o remoto
+git fetch origin master
+//importa os dados do remoto
+git pull origin master
+//cria os ignores
+nano .gitignore
+//escolhe as pastas que voce quer ignorar no commit
+o git ignore adicionar
+#eclipse workspace
+.metadata
+.recommenders
+RemoteSystemsTempFiles
+bin
+.class
+ctrl+x  /// salva e volta ao cmd
+
+//verificar os arquivos untracked e colocar os arquivos no stage para comitar depois
+git add .
+//gravar as alterações no repositorio
+git commit -m "Primeiro Commit"
+//enviar para o github
+git push origin master
+
+**********
+Estudar
+git Log
+git Clone
+git Checkout
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+

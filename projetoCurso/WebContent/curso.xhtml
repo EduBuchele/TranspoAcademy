@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	 <h:head>
+    </h:head>
+	<h1>Projeto Curso</h1>
+	<p:growl id="msgs" showDetail="true" />
+
+	<p:fieldset legend="Cadastro de Cursos" toggleable="true"
+		toggleSpeed="500">
+		<p:ajax event="toggle" listener="#{fieldsetView.handleToggle}"
+			update="msgs" />
+		<p:messages />
+
+		<h:form id="formCurso">
+			<p:panelGrid columns="2" columnClasses="label, value">
+				<p:outputLabel value="Curso:  " for="nome" />
+				<p:inputText id="nome" value="#{cursoBean.curso.nomeCurso}" />
+				<p:outputLabel value="Professor " for="professor" />
+				<p:inputText id="professor"
+					value="#{cursoBean.curso.professorCurso}" />
+				<p:commandButton value="Salvar" action="#{cursoBean.adicionar}"
+					process="@form" update="@form" />
+			</p:panelGrid>
+		</h:form>
+	</p:fieldset>
+
+</h:body>
+</html>

@@ -1,6 +1,6 @@
-package br.com.cursojava.exercicio_dois;
+package br.com.cursojava.exercicio;
 
-public class ExercicioTres {
+public class Exercicio03 {
 //3) Dado as notas 10, 7, 5, 9, 10, 7, 8, 10 , 10,10. Calcule e apresente a soma e a média das notas.
 	public static void main(String[] args) {
 

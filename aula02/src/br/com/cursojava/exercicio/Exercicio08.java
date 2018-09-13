@@ -1,6 +1,6 @@
-package br.com.cursojava.exercicio_dois;
+package br.com.cursojava.exercicio;
 
-public class ExercicioOito {
+public class Exercicio08 {
 //	8) Utilizando a calsse Math Crie uym programa e escreva o valor absoluto dos numeros -10, 20, -50 e -1000;
 	public static void main(String[] args) {
 

@@ -1,4 +1,4 @@
-package br.com.cursojava;
+package br.com.cursojava.exercicios;
 
 import java.util.Scanner;
 
@@ -19,7 +19,9 @@ public class Exercicio09 {
 
 		teclado.close();
 
-		System.out.println("A média podenrada é : " + ((n1 * 0.2) + (n2 * 0.3) + (n3 * 0.5)));
+		double mediaPonderada = (n1 * 0.2) + (n2 * 0.3) + (n3 * 0.5);
+		System.out.println("A média podenrada é : " + mediaPonderada);
+		System.out.printf("A média podenrada é %.2f: ", mediaPonderada);
 
 	}
 

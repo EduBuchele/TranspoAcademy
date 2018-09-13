@@ -1,4 +1,4 @@
-package br.com.cursojava;
+package br.com.cursojava.exercicios;
 
 import java.util.Scanner;
 
@@ -12,11 +12,13 @@ public class Exercicio06 {
 		// produto apos a aplicação do desconto.
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Digite o preço do Produto: ");
-		double produto = Double.parseDouble(teclado.nextLine());
+		double valorProduto = Double.parseDouble(teclado.nextLine());
 		System.out.println("Digite o percentual de desconto do Produto: ");
-		double desconto = Double.parseDouble(teclado.nextLine());
-		System.out.println("Desconto é de R$" + (produto * desconto) + " O produto com desconto é R$"
-				+ (produto - (produto * desconto)));
+		double percentualDesconto = Double.parseDouble(teclado.nextLine());
+		double valorDesconto = valorProduto * percentualDesconto;
+		double produtoComDesconto = valorProduto - valorDesconto;
+		System.out.println("Desconto é de R$" + valorDesconto + " O produto com desconto é R$"
+				+ produtoComDesconto);
 		teclado.close();
 	}
 

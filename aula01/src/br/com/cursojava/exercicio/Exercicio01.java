@@ -1,7 +1,10 @@
-package br.com.cursojava.exercicio_um;
+package br.com.cursojava.exercicio;
 
-public class ExercicioUm {
+public class Exercicio01 {
 
+	// Dado as variaveis abaixo, escreva um programa que apresente o resultado das seguintes operações:
+	//	int a = 10;		int b = 9;		int c = 8;
+	//		1) Calcule a média dos numeros;
 	public static void main(String[] args) {
 
 		int a = 10;
@@ -9,10 +12,7 @@ public class ExercicioUm {
 		int c = 8;
 
 		System.out.println("Media: " + (a + b + c) / 3);
-		System.out.println("Soma: " + (a + b + c));
-		System.out.println("Soma/Media: " + (a + b + c) / ((a + b + c) / 3));
-		System.out.println("Resto a/b: " + a % b);
-		System.out.println("Soma - c/4: " + ((a + b + c) - (c / 4)));
+
 
 	}
 }

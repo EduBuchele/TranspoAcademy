@@ -1,4 +1,4 @@
-package br.com.cursojava;
+package br.com.cursojava.exercicios;
 
 import java.util.Scanner;
 
@@ -16,7 +16,9 @@ public class Exercicio10 {
 
 		teclado.close();
 
-		System.out.println("Seu IMC é : " + (peso / (altura * altura)));
+		double imc = peso / (altura * altura);
+		System.out.println("Seu IMC é : " + imc);
+		System.out.printf("Seu IMC é : %.2f", imc);
 
 	}
 

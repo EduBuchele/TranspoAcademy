@@ -1,6 +1,6 @@
-package br.com.cursojava.exercicio_dois;
+package br.com.cursojava.exercicio;
 
-public class ExercicioUmA {
+public class Exercicio01A {
 // 1) dado um retangulo de base 20 e altura 30. Escreva um programa que calcule e apresente os seguintes valores:
 //	a) A area do retangulo
 //	b) O perimetro do retangulo
