@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class ExemploIf {
 
+	private static Scanner scanner;
+
 	public static void main(String[] args) {
 		
-		Scanner scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 		System.out.println("Digite dia idade: ");
 		int idade = Integer.parseInt(scanner.nextLine());
 		

@@ -151,6 +151,43 @@ git Clone
 git Checkout
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+Operadores Relacionais
+>
+<
+>=
+<=
+Operadores de Igualdade
+!=
+==
+
+Operadores Logicos
+&&
+||
+! 	nao
+^	ou exclusivo
 
 
+
+todas comparações retornam boolean (True or False)
+
+Aula05 14/09/2018
+1) Crie um programa que solicite o nome do usuario e emseguida informe a quantidade de letras do nome informado;
+2) Crie um programa que solicite 3 notas e em seguida calcule a media das notas. Se a media for maior ou igual a 7 escreva "Aprovado" senao escreva "Reprovado
+3) Crie um programa que solicite uma frase e em seguida apresente a frase digita sem as vogais.
+4) Escreva um programa que solicite a idade do usuario e em seguida apresente uma mensagem informando se o usuario pode fazer a CNH.
+5) Escreva um programa que solicite um numero e em seguida apresente iima mensagem informadno se o umero digitado foi "PAR" ou "IMPAR". Todo numero par deve ter resto da divisao por 2 igual a zero.
+6) Escreva um programa que solicite a idade, a altura e o peso de uma pessoa, em seguida calulce o IMC utilizando a formaula IMC = peso/altura*altura. O programa deve apresentar uma mensagem informadno se o ims esta abaixo, normal ou obeso de acordo com a tabela.
+Abaixo 17 = "Muito abaixo do Peso"
+17 a 18,49 = "Abaixo do Peso"
+18,5 a 24,99 = "peso Normal"
+25 a 29,99 = " Acima do Peso"
+30 a 34,99 = "Obesidade I"
+35 a 39,99 = " Obesidade II (severa)"
+Acima 40 = " Obesidade III (morbida)"
+
+7) Escreva um programa que solicite o valor do salario de uma pessoa e calcule o valor do imposto de renda conforme os dados abaixo
+Ate 1800. Isento
+de 1800,01 até 2400,00 = 7,5%
+de 2400,01 ate 3600,00 = 15%
+acima de 3600 = 27%
 
