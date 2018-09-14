@@ -1,4 +1,4 @@
-package br.com.cursojava.exercicios;
+package br.com.cursojava.avaliacao;
 
 import java.util.Scanner;
 

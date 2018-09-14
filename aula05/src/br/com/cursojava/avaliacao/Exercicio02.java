@@ -1,4 +1,4 @@
-package br.com.cursojava.exercicios;
+package br.com.cursojava.avaliacao;
 
 import java.util.Scanner;
 
@@ -18,9 +18,9 @@ public class Exercicio02 {
 		double media = ((n1 + n2 + n3) / 3);
 
 		if (media >= 7) {
-			System.out.printf("Sua media foi: %.2f e voce foi aprovado!", media);
+			System.out.printf("Sua media foi: %.2f e voce foi Aprovado! \n", media);
 		} else {
-			System.out.printf("Sua media foi: %.2f e voce esta Reprovado!", media);
+			System.out.printf("Sua media foi: %.2f e voce esta Reprovado! \n", media);
 		}
 		System.out.println("Fim da Aplicação.");
 
