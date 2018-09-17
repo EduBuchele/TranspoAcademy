@@ -17,9 +17,8 @@ public class CursoBean {
 	private Integer professorId;
 	private Integer cursoId;
 	private List<Curso> cursos;
-	
+
 	DAO<Curso> dao = new DAO<Curso>(Curso.class);
-	
 
 	public Integer getCursoId() {
 		return cursoId;
@@ -29,7 +28,6 @@ public class CursoBean {
 		this.cursoId = cursoId;
 	}
 
-	
 	public void carregarPelaId() {
 		this.curso = new DAO<Curso>(Curso.class).buscaPorId(this.cursoId);
 	}
@@ -37,16 +35,14 @@ public class CursoBean {
 	public void setProfessorId(Integer professorId) {
 		this.professorId = professorId;
 	}
-	
+
 	public Integer getProfessorId() {
 		return professorId;
 	}
 
-
 	public Curso getCurso() {
 		return curso;
 	}
-
 
 	public List<Curso> getCursos() {
 		DAO<Curso> dao = new DAO<Curso>(Curso.class);
@@ -55,25 +51,23 @@ public class CursoBean {
 		}
 		return cursos;
 	}
+
 	public List<Professor> getProfessores() {
 		return new DAO<Professor>(Professor.class).listaTodosProfessor();
-		}
-	
-	
-	public List<Professor> getProfessoresDoCurso() {
-	return this.curso.getProfessores();
 	}
-	
+
+	public List<Professor> getProfessoresDoCurso() {
+		return this.curso.getProfessores();
+	}
+
 	public void addProfessorCurso() {
 		Professor professor = new DAO<Professor>(Professor.class).buscaPorId(this.professorId);
 		this.curso.adicionaProfessor(professor);
-		System.out.println(this.curso.getProfessores());
 	}
 
 	public void adicionar() {
 		System.out.println("Adicionando Curso: " + this.curso.getNomeCurso() + this.curso.getProfessores());
 		if (this.curso.getId() == null) {
-			System.out.println(this.curso.getProfessores());
 			dao.adiciona(this.curso);
 			this.cursos = dao.listaTodosCurso();
 		} else {
@@ -86,10 +80,9 @@ public class CursoBean {
 		dao.remove(curso);
 		this.cursos = dao.listaTodosCurso();
 	}
-	
-	public void removerProfessorDoCurso (Professor professor) {
+
+	public void removerProfessorDoCurso(Professor professor) {
 		this.curso.removeProfessor(professor);
 	}
-	
 
 }

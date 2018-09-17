@@ -19,5 +19,6 @@ public class Exercicio05 {
 		System.out.println("Informa um numero(5/5): ");
 		double n5 = Double.parseDouble(scanner.nextLine());
 		
+		
 	}
 }

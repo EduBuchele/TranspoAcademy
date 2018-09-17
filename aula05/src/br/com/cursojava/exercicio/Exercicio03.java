@@ -32,4 +32,5 @@ public class Exercicio03 {
 		
 		scanner.close();
 	}
+	
 }

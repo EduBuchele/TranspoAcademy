@@ -20,4 +20,5 @@ public class Exercicio02 {
 		System.out.printf("( %.2f + %.2f ) = %.2f x %.2f = %.2f ", n1, n3, soma1e3, n2, soma1e3 * n2);
 		scanner.close();
 	}
+	
 }

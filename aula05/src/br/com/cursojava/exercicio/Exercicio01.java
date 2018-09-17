@@ -15,4 +15,5 @@ public class Exercicio01 {
 		System.out.printf("%.2f x %.2f = %.2f ", n1, n2, multiplicacao);
 		scanner.close();
 	}
+	
 }
