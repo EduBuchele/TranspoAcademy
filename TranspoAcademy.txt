@@ -176,7 +176,7 @@ Aula05 14/09/2018
 3) Crie um programa que solicite uma frase e em seguida apresente a frase digita sem as vogais.
 4) Escreva um programa que solicite a idade do usuario e em seguida apresente uma mensagem informando se o usuario pode fazer a CNH.
 5) Escreva um programa que solicite um numero e em seguida apresente iima mensagem informadno se o umero digitado foi "PAR" ou "IMPAR". Todo numero par deve ter resto da divisao por 2 igual a zero.
-6) Escreva um programa que solicite a idade, a altura e o peso de uma pessoa, em seguida calulce o IMC utilizando a formaula IMC = peso/altura*altura. O programa deve apresentar uma mensagem informadno se o ims esta abaixo, normal ou obeso de acordo com a tabela.
+ 6) Escreva um programa que solicite a idade, a altura e o peso de uma pessoa, em seguida calulce o IMC utilizando a formaula IMC = peso/altura*altura. O programa deve apresentar uma mensagem informadno se o ims esta abaixo, normal ou obeso de acordo com a tabela.
 Abaixo 17 = "Muito abaixo do Peso"
 17 a 18,49 = "Abaixo do Peso"
 18,5 a 24,99 = "peso Normal"
@@ -191,3 +191,21 @@ de 1800,01 até 2400,00 = 7,5%
 de 2400,01 ate 3600,00 = 15%
 acima de 3600 = 27%
 
+
+1) Escreva um programa que solicite 2 números para o usuário e em seguida escreva o resultado da multiplicação do primeiro número pelo segundo.
+2) Escreva um programa que solicite 3 números para o usuário e em seguida escreva o resultado da soma do primeiro número com o terceiro número  e em seguida multiplique o resultado pelo segundo número informado. Mostre na tela o resultado da aplicação.
+3)Escreva um programa que solicite 3 notas de um aluno e em seguida calcule a média das notas. Caso a média seja maior ou igual a 9 escreva Excelente, caso a média seja maior ou igual a 8 e menor que 9 escreva "Muito Bom", caso a nota seja maior ou igual a 6 e menor que 8 escreva "Bom", caso a nota seja menor que 6 escreva "Insuficiente".
+
+4) Crie um programa que solicite 3 notas e em seguida calcule a média das notas. Caso a nota seja maior ou igual a 9 apresente a mensagem "Conceito A", caso a nota seja menor que 9 e maior ou igual a 7 apresente a mensagem "Conceito B", caso a nota seja menor que 7 e maior ou igual a 6 apresente a mensagem "Conceito C",caso a nota seja menor que 6 e maior ou igual a 5 apresente a mensagem "Conceito D", senão apresente a mensagem "Conceito Insuficiente".
+
+5) Crie um  que solicite 5 números para o usuário e em seguida escreva o maior número digitado.
+
+6) Crie um  que solicite 5 números para o usuário e em seguida escreva o menor número digitado.
+
+7) Crie um  que solicite o comprimento das arestas de um triângulo e em seguida escreva uma mensagem informando qual é o tipo d triangulo informado. (Equilátero,isóceles ou escaleno).
+Triângulo equilátero: possui os três lados com medidas iguais. 
+Triângulo isósceles: possui dois lados com medidas iguais. 
+Triângulo escaleno: possui os três lados com medidas diferentes. 
+
+
+3 Dicas sobre ingles para desenvolvedores
