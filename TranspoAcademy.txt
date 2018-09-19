@@ -239,7 +239,43 @@ a mensagem "Opção Invalida".
 4 - Sair
 
 
+Aula07 - 18/09/2018 
+9 em cada 10 profissionais sao contratados pelo perfil tecnico e demitido pelo comportamental
 
+professor Pierluigi Piazzi
+
+Utilizando o comando for execute os exercicios abaixo:
+1) Crie um programa que solicite um numero entre 1 e 20 e em seguida calcule e
+apresente o valor do fatorial do numero informado.
+2) Crie um programa que apresente os numeros pares entre 100 e 200;
+3) Crie um programa que solicite 5 numeros e em seguida escreva o valor do maior numero informado.
+4) Crie um programa que solicite 5 numeros e em seguida apresente o valor da soma e da media;
+5) Crie um programa que solicite uma frase e em seguida apresente as letras dos indices impares;
+6) Crie um programa que solicite uma palavra e em seguida escreva a palavra de forma inversa. (Ex. Felipe => epileF)
+7) Cire um programa que imprima os valores abaixo no console:
+X
+XX
+XXX
+XXXX
+XXXXX
+
+8) Crie um programa que imprima os calores abaixo no console
+#####
+####
+###
+##
+#
+
+Aula 08 - 19/09/2018
+
+
+///vetores // array
+
+1) Crie um programa que solicite 10 notas e em seguida calcule 
+a media das notas e escreva as notas digitas juntamenteo com o valor da media
+2) Crie um programa que crie um array com os valores 1,3,2 e em seguida processe o array para que os valores se posicionem na forma 3,2,1
+3) Crie um programa que solicite 5 notas e em seguida apresente o valor da maior nota juntamente com a posição da nota dentro do array.
+4) Crie um programa que solicite o nome de 10 pessoas e em seguida apresente os nomes informados na ordem inversa. ( O ultimo nome deve ser o primeiro);
 
 
 
