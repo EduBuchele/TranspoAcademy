@@ -33,7 +33,7 @@ public class Exercicio02 {
 		// A quantidade de meias vendidas
 		System.out.println("b) A quantidade de meias vendidas");
 		int somaMeias = 0;
-		for (int mes = 0; mes < tabelaPreco[0].length; mes++) {
+		for (int mes = 0; mes <= tabelaPreco[0].length; mes++) {
 			somaMeias += tabelaPreco[mes][0];
 		}
 		System.out.println("Total de meias vendidas: " + somaMeias);
