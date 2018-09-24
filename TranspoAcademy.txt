@@ -308,4 +308,78 @@ d) A quantidade de camisas + a quantidade de camisetas vendidas mês a mês
 e) O tipo de peça mais vendida em cada mês.
 
 
+Aula11 - 24/09/2018
+OBjeto  - representação em memória - new
+Classe - Especificação do do objeto, todas informações. "Planta da casa"
+
+Objeto
+- Caracteristica => Variaveis
+- Ações =>métodos
+
+Métodos
+Visibilidade | Modificador | Tipo | Nome | (Parametros){
+Corpo;
+}
+
+Visibilidade: (Caso nao informado é padrão)
+padrão: Somente dentro do package
+private 
+public
+protect
+
+Modificador: (Opcional)
+static
+
+Tipo: (Obrigatorio)
+tipo que o metodo retorna
+void > nao retorna nada
+String > retorna String
+int
+...
+
+Nome: (Obrigatorio)
+nome do metodo
+
+Parametros: (Opcional)
+vai estar dentro dos parenteses()
+contem a lista de paramentros | Tipo e nome
+
+Corpo: (Obrigatorio)
+vai estar estar dentro das chaves{}
+onde é escrito a logica
+os comandos a serem executados
+
+Declaração de variaveis;
+Toda variavel deve começar por letra, um _ ou um $; 
+Apartir do segundao caracter por conter letras, 
+	numeros ou caracteres de conexao( _, $);
+Nao são permitidos caracteres especiais(-, # ,@ ,% ,. , etc);
+Deve-se evitar caracteres com acentuação;
+Não tem limite de tamanho;
+Não podem ser usados nomes de palavras reservadas;
+
+Convenções para a declaração de variáveis e métodos:
+Devem ser escritas com letras minusculas;
+Caso sejam formadas por palavras compostas, devem seguir padrão CamelCase,
+	onde a primeira palavra é definida em minuscula e as demais palavras
+	são escritas apenas com a primeira letra Maiscula;
+Ex.:
+livro;
+pessoaFisica;
+ComprovatePagamentoPessoaFisica;
+
+01) Crie uma classe "Produto" que possua os atributos nome e preço, 
+a classe tambem deve possuir metodos de configuração e acesso para cada um dos atributos.
+
+02) Crie uma classe Veiculo, que possua os atributos:
+marca, modelo, cor. anod e fabricação e ano modelo;
+A classe tambem deve possuir metodos de configuração e acesso para cada um dos 
+atributos definidos.
+
+03) Crie uma classe Aluno que deve possuir os atributos
+nome, telefone e matricula
+A classe tambem deve possuir metodos de configuração e acesso para cada um dos 
+atributos definidos.
+
+
 
