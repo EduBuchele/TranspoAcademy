@@ -1,4 +1,4 @@
-package b.com.cursojava.exercicio;
+package br.com.cursojava.exercicio;
 
 public class Veiculo {
 

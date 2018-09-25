@@ -1,4 +1,4 @@
-package b.com.cursojava.modelo;
+package br.com.cursojava;
 
 public class App {
 	public static void main(String[] args) {

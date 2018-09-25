@@ -1,6 +1,8 @@
-package b.com.cursojava.teste;
+package br.com.cursojava.teste;
 
 import java.util.Scanner;
+
+import br.com.cursojava.modelo.CadastroProdutos;
 
 public class AppCadastro {
 
@@ -10,6 +12,7 @@ public class AppCadastro {
 
 		CadastroProdutos cadastro = new CadastroProdutos();
 		cadastro.mostrarMenu(teclado);
+		System.out.println("********Fim da Aplicação**********");
 
 		teclado.close();
 
