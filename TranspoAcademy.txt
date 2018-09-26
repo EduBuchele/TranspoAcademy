@@ -381,5 +381,25 @@ nome, telefone e matricula
 A classe tambem deve possuir metodos de configuração e acesso para cada um dos 
 atributos definidos.
 
+Aula12- 25/09/2018
+Continuação do projeto
+
+Aula13 - 26/09/2018
+01) Crie um programa de cadastro de contatos conforme as definições abaixo:
+O contato de possuir os seguintes atributos:
+id: Integer
+nome: String
+telefone: String
+email: String
+
+O programa deve apresentar opções para:
+Cadastrar um novo contato;
+Listar os contatos Cadastrados
+Realizar a pesquisa de um contato através do nome
+Realizar a pesquisa de um contato através do numero de telefone
+Todo Contato deve obrigadoriamente possuir um nome com ao menos 3 caracteres
+Não deve ser permitida a inclusão de contatos com nome em branco;
+
+O sistema deve ter como base estrutural, o sistema de produtos realizado na aula12;
 
 
