@@ -403,3 +403,32 @@ Não deve ser permitida a inclusão de contatos com nome em branco;
 O sistema deve ter como base estrutural, o sistema de produtos realizado na aula12;
 
 
+Aula14 - 27/09/2018
+Crie uma aplicação para cadastro de veiculos,
+cada veivulo deve possuir as seguintes propriedades:
+id: Integer
+marca: String
+modelo: String
+placa: String
+anoFabricação: int
+anoModelo: ind
+cor: String
+
+O sistema deve permitir o cadastro de um novo veiculo,
+ a listagem de todos os veiculos, 
+a pesquisa de veiculos por marca,
+a pesquisa de veiculos por modelo,
+a pesquisa de veiculos por placa,
+a pesquisa de veiculos por anoFabricação,
+e a remoção de veiculos;
+
+marca e modelo são propriedades obrigatorias e 
+devem possuir ao menos 3 caracteres nao vazios(espaços);
+
+a placa é uma propriedade obrigatoia e deve
+possuir obrigatoriamente 7 caracteres;
+
+O ano de fabricação deve ser maior ou igual a 2000.
+O ano modelo não deve ser menor que o ano de fabricação;
+
+

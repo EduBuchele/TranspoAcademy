@@ -54,7 +54,7 @@ public class ContatoController {
 		Contato[] lista = listarContatos();
 		Contato[] listaPorNomes = new Contato[lista.length];
 		int quantidade = 0;
-		//Filtra ignorando Maisucula e Minuscula
+//			Filtra ignorando Maisucula e Minuscula
 //		for (Contato contato : lista) {
 //			if (contato.getNome().equalsIgnoreCase(nomePesquisa)) {
 //				listaPorNomes[quantidade++] = contato;
