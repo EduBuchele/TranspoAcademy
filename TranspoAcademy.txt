@@ -432,3 +432,34 @@ O ano de fabricação deve ser maior ou igual a 2000.
 O ano modelo não deve ser menor que o ano de fabricação;
 
 
+Crie um programa para realizar o cadastro de Clientes. 
+Cada cliente deve possuir as seguintes propriedades:
+int id;
+String nome
+String email
+String telefone
+String endereço
+String tipo (Silver, Gold, Platinum)
+
+Endereço:
+String rua;
+int numero;
+String complemento;
+String bairro;
+String cidade;
+String cep;
+String estado;
+
+O sistema deve permitir o cadastro e listagem de clientes
+Filtro de clientes por tipo;
+Filtro de clientes por cidade;
+
+O nome do cliente deve possuir ao menos 3 caracteres e
+não devem ser permitido cadastro com nome em branco;
+
+Todos os dados do endereço, com excessao do complemento, 
+são obrigatorios e nao devem possuir valores em branco.
+
+O Sistema deve permitir exclusão de clientes através
+da informação do cliente.
+
