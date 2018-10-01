@@ -463,3 +463,33 @@ são obrigatorios e nao devem possuir valores em branco.
 O Sistema deve permitir exclusão de clientes através
 da informação do cliente.
 
+Aula16 - 01/10/2018
+Assuntos da Semana:
+Herança  ok
+Interface
+Abstract Class
+Static
+Final
+Polimorfismo ok
+É Um ok
+Tem Um
+Solid
+
+**** 	Construtor
+Se nao for definido um construtor
+Entao o Java irá criar um construtor pra voce
+
+Construtor sem parametros 
+com a visibilidade da classe
+
+Tem o mesmo nome da classe
+Não tem tipo de retorno.
+Pode ter zero ou mais parametros
+e pode ter a visibilidade public, protegida, pacote(default) ou privada.
+
+Crie uma classe Pessoa com os atributos, código e nome, em Seguida
+Altere a classe Contato do projeto Aula13 para que use 
+a classe Pessoa como Super Classe
+
+Crie um construtor com todos os parametros necessarios para a criação
+de um contato e ajuste o codigo para utilizar o novo construtor;
