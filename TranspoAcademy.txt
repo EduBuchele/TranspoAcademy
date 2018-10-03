@@ -496,3 +496,23 @@ de um contato e ajuste o codigo para utilizar o novo construtor;
 
 
 Aula17 - 02/10/2018
+Interfaces
+Classes Abstratas
+
+Aula18 - 03/10/2018
+TDD - testes automatizados
+
+Crie um conversor entre graus Celsius e Fahrenheit, 
+o conversor deve ter opções de realizar a conversão entre quaisquer 
+um dos dois tipos de escala.
+O desenvolvimento deve ser realizado utilizando os conceitos TDD.
+
+Crie uma calculadora de Descontos seguindo as seguintes regras:
+Valores negativos devem retornar zero;
+Valores positivos ate 1800 devem retornar exatamente o valor informado
+Valores entre 1800,01 e 2400 devem retornar o valor informado aplicando
+um desconto de 5%;
+Valores entre 2400,01 e 3599,99 devem retornar o valor informado aplicando
+um desocnto de 22%;
+Valores a partir de 3600 devem retornar o valor informado aplicando um 
+desconto de 32%;
