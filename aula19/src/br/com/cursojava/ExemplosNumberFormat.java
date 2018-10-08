@@ -17,10 +17,10 @@ public class ExemplosNumberFormat {
 		System.out.println(numCurrency);
 		
 		Locale ptBr = new Locale("pt", "BR");
-		System.out.println(NumberFormat.getCurrencyInstance(ptBr).format(numero));
+		System.out.println(NumberFormat.getCurrencyInstance(ptBr).format(88888));
 		
 		Locale enUS = new Locale("en", "US");
-		System.out.println(NumberFormat.getCurrencyInstance(enUS).format(numero));
+		System.out.println(NumberFormat.getCurrencyInstance(enUS).format(55555));
 		
 		System.out.println("Exemplos de getInstance: ");
 		

@@ -518,17 +518,82 @@ Valores a partir de 3600 devem retornar o valor informado aplicando um
 desconto de 32%;
 
 Aula19 - 04/10/2018
-
+	
 Calendar 
 DateFormat
 NumberFormat
 
+Aula20 - 05/10/2018
+Apresentação Artigo
+Class Date
+Class Calendar
+Class DataFormat
+Class NumberFormat
+Class Locale
+
+Proximos Assuntos
+
+new DateTime API
+Final
+Colletions
+	List
+	Map
+	Set
+Lambda
+Stream
+JDBK
+JPA/Hibernate
+JSF
+JAX-RS
+Manipularção de Arquivos
+	Texto
+	Binario
+Banco De Dados
+Padrões de Projeto
+SOLID
+Arq. Transpo
+
+Aula21 - 08/10/2018
+	
+Thwoable 	
+	Error
+	Exception
+		RunTimeException
+//Thwoable 	 Classe mae dos erros e excessoes
+		 Duas filhas Error e Exception
+Error, 
+O programador não deve tentar tratar.
+Geralmente são problemas de memoria, e nao de codigo.
+Exceptions
+É obrigátorio o tratamento, (Try Catch) ou declarar (Throws)
+	Filhas diretas, Exception Checkeds, o Java solicita o tratamento.
+RunTimeException é UnChecked
+	Acontecem em tempo de execução
 
 
-
-
-
-
+java.lang.IllegalArgumentException
+	Indica que um argumento ou parametro indicado é ilegal ou inapropriado
+	para o metodo utilizado
+java.lang.IllegalStateException
+	Foi invocado um metodo ou ação Ilegal ou no tempo errado.
+	ou o objeto nao esta preparado para a ação.
+	Informado parametros errados de um objeto
+java.lang.ArrayIndexOutOfBoundsException
+	Indica a tentativa de acessar um index errado de um Array
+	Numeros negativos ou maiores que o tamanho do Array
+java.lang.NullPointerException
+	A Excessao é lançada quando tentamos acessar um Objeto Null:
+		Instanciando um metodo de um objeto Null
+		Acessando ou modificando um campo de objeto Null
+		Acessando ou modificando objetos null de um array
+java.sql.SQLException
+	A classe informa sobre erros no acesso ao Banco de Dados
+java.io.IOException
+	A classe informa que ocorreu uma excessao produzida por falha ou interrupção de uma operação IO
+java.io.FileNotFoundException
+	A Classe informa que ocorreu uma falha ao acessar um arquivo. 
+	Nome, Local ou tipo de arquivo Invalido ou inacessivel
+	FileInputStream, FileOutputStream, and RandomAccessFile
 
 
 
