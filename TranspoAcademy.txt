@@ -596,10 +596,77 @@ java.io.FileNotFoundException
 	FileInputStream, FileOutputStream, and RandomAccessFile
 
 
+Aula22 - 09/10/2018
+LIST
+O faz a interface, pra que serve
+principais suubclasses que implementam:
+
+ArrayList
+LinkedList
+Vector
+
+Collections
+LIST
+uma coleção de ordenação. dá ao usuario controle preciso dos elementos de uma lista. Pode acessar os elemetos pela posição da lista e pesquisar elementos na lista;
+
+Diferente dos conjuntos, as listas permitem elementos duplicados, permitindo multiplos elementos nulos. Podem conter pares de elementos iguais, e caso o usuario queira restringir para que não haja é possivel atraves de lançamento de excessões em tempo de execução(RunTimeExceptions)
+
+Fornece quatro métodos para acesso possicional aos elementos.
+
+A interface List fornece um iterador especial, chamado ListIterator, que permite a inserção e a substituição de elementos, além do acesso bidirecional, além das operações normais que a interface Iterator fornece. Um método é fornecido para obter um iterador de lista que inicia em uma posição especificada na lista
+
+A interface List fornece dois métodos para inserir e remover com eficiência vários elementos em um ponto arbitrário da lista
+
+algumas implementações proíbem elementos nulos e algumas têm restrições sobre os tipos de seus elementos. A tentativa de adicionar um elemento não elegível gera uma exceção não verificada, normalmente NullPointerException ou ClassCastException
+
+Nota: Embora seja permitido que as listas se contenham como elementos, recomenda-se extrema cautela: os métodos equals e hashCode não são mais bem definidos nessa lista.
+    
+
+* ARRAYLIST
+Implementando todas as operações de List, o ArrayList permite  metodods de manipular o tamanho da matriz que guardará a lista, Parecida com o Vector o ArrayList não está sincronizada. as Operações size, isEmpety, get, set, iterator e listIterator são executadas constantementes, A operação add é executado em tempo constante conforme a quantidade de itens a adicionar, e as demais operações sao executadas em tem linear.
+Sua capacidade é modificada conforme a quantidade de itens da lista. Podendo te aplicativos que aumente a capacidade de uma ArrayList antes de adicionar os itens da lista usando o ensureCapacity.
 
 
+principais metodos: add(), clear(), ensureCapacity() get(), set(), indexOf(), isEmpty(), listInterator(), remove(), size(), sort(), toArray(), subList()
 
+Os iteradores retornados pelos métodos iterator e listIterator dessa classe são fail-fast: se a lista for estruturalmente modificada a qualquer momento após a criação do iterador, de qualquer forma, exceto pelos métodos remove ou add do iterador, o iterador lançará um ConcurrentModificationException. Assim, em face da modificação concorrente, o iterador falha rapidamente e de forma limpa, em vez de arriscar um comportamento arbitrário e não determinístico em um tempo indeterminado no futuro.
+o comportamento fail-fast dos iteradores deveria ser usado apenas para detectar bugs
 
+* LINKEDLIST
+Implementação da lista duplamente vinculada das interfaces List e Deque. Todas as operações funcionam como poderia ser esperado para uma lista duplamente vinculada. As operações indexadas na lista percorrerão a lista do início ou do fim, o que estiver mais próximo do índice especificado. Permite a adicção e remoção de dados nas suas duas extremidades.
+
+Assim como o ArryList ela não é sincronizada, precisando sincronizar caso haja pelo menos uma modificação estrutural(adicionar ou excluir um item da lista)
+Os iteradores retornados pelos métodos iterator e listIterator dessa classe são fail-fast: se a lista for estruturalmente modificada a qualquer momento após a criação do iterador, de qualquer forma, exceto pelos métodos remove ou add do iterador, o iterador lançará um ConcurrentModificationException. Assim, em face da modificação concorrente, o iterador falha rapidamente e de forma limpa, em vez de arriscar um comportamento arbitrário e não determinístico em um tempo indeterminado no futuro.
+o comportamento fail-fast dos iteradores deveria ser usado apenas para detectar bugs
+* VECTOR
+A classe Vector implementa uma matriz expansível de objetos. Como uma matriz, ela contém componentes que podem ser acessados usando um índice inteiro. No entanto, o tamanho de um Vetor pode aumentar ou diminuir conforme necessário para acomodar a adição e a remoção de itens após a criação do Vetor.
+Cada vetor tenta otimizar o gerenciamento de armazenamento mantendo uma capacidade e um incremento de capacidade. A capacidade é sempre pelo menos tão grande quanto o tamanho do vetor; geralmente é maior porque, à medida que componentes são adicionados ao vetor, o armazenamento do vetor aumenta em partes do tamanho da capacidade Incremento. Um aplicativo pode aumentar a capacidade de um vetor antes de inserir um grande número de componentes; isso reduz a quantidade de realocação incremental.
+
+Os iteradores retornados pelos métodos iterator e listIterator dessa classe são fail-fast: se a lista for estruturalmente modificada a qualquer momento após a criação do iterador, de qualquer forma, exceto pelos métodos remove ou add do iterador, o iterador lançará um ConcurrentModificationException. Assim, em face da modificação concorrente, o iterador falha rapidamente e de forma limpa, em vez de arriscar um comportamento arbitrário e não determinístico em um tempo indeterminado no futuro.
+o comportamento fail-fast dos iteradores deveria ser usado apenas para detectar bugs
+
+///////////////
+Set
+Não permite valores duplicados
+TreeSet ordena
+HashSet + perfomace e sem ordenação
+
+////////////
+MAP
+HashMap
+Chave + Valor
+Permite valores vazios, mas as chaves precisam de valor
+Não sao sincronizados
+Nao tem ordenação
+
+TreeMap
+Tem Ordenação
+Não sao sincronizados
+
+HashTable 
+nao permite valores vazios
+Sincronizado
+Thread Safe
 
 
 
