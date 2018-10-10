@@ -669,6 +669,31 @@ Sincronizado
 Thread Safe
 
 
+Collections
+Precisa adicionar equals() e hascode()
+e para ordenação interface comparable
+//////Interfaces
+	List  
+	-	Possui Ordenação
+	-	Valores Duplicados
+	-	Tem Indice
+	Set
+	-	Não tem ordenação Garantida
+	- 	Não tem Valor Duplicado
+	-	Não tem indice;
+
+
+
+
+java.util
+	Map
+	-	Não tem ordenação Garantida
+	- 	Pode haver Valores Duplicados
+	-	Não tem indice;
+	- 	Possui Chave e Valor
+
+
+
 
 
 
