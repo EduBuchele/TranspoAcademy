@@ -695,7 +695,16 @@ java.util
 
 
 
+Aula23 - 10/10/2018
+ENUM
+FINAL
+Se nao utilizar HashSet + Equals nos comparativos ele busca um endereço de memoria, 
+e nao vai achar os produtos de forma segura
 
+***...Estudar as regras do HashCode e Equals
+
+Streams
+https://www.oracle.com/technetwork/pt/articles/java/streams-api-java-8-3410098-ptb.html
 
 
 
