@@ -707,9 +707,480 @@ Streams
 https://www.oracle.com/technetwork/pt/articles/java/streams-api-java-8-3410098-ptb.html
 
 
+Aula24 - 11/10/2018
+01) Crie uma ENUM TipoContato com os seguintes valores:
+FAMILIA, 
+AMIGO,
+TRABALHO,
+OUTROS;
+
+02) Crie uma classe Contato com os atributos abaixo:
+Integer id;
+String nome;
+String email;
+String telefone;
+TipoContato tipo;
+
+03) Crie uma Interface denominada RepositorioContato com os seguintes metodos:
+boolean adicionar(Contato contato)
+boolean editar(Contato contato)
+java.util.List<Contato> buscarTodos();
+java.util.List<Contato> buscarPorNome (String nome);
+java.util.List<Contato> buscaPorTelefone (String telefone);
+java.util.List<Contato> buscaPorTipo (TipoContato tipo);
+Contato buscaPorId (Integer id);
+boolean remover (Contato contato);
+
+04) Crie uma classe denominada RepositorioContatoMemory que implemente 
+a interface RepositorioContato. Esta classe deve armazenar os dados dos 
+contatos em uma Lista em memória.
+
+05) Crie uma classe de testes que realize os testes unitários para todos
+ os métodos da classe RepositorioContatoMemory.
 
 
+Aula 25 - 12/10/2018- Feriado
+
+Aula 26 - 16/10/2018
+Banco de Dados Relacionais:
+Guardam os dados em forma de tabelas;
+Linhas x Colunas
+
+create database nome_database;
+//depois selecionar a DB ola
+
+create table nome_tabela(
+nome_data_coluna tipo_de_dado restrições,
+nome_data_coluna tipo_de_dado restrições,
+...
+);
+
+Tipos de Dados:
+https://www.postgresql.org/docs/9.3/static/datatype.html
+integer
+varchar(100) //limite de 100 caracteres
 
 
+Restrição é opcional
+not null // campo é obrigatorio, não pode ser nulo
+
+//remover tabela cachorros
+drop table cachorros;
+
+Adicionar coluna na tabela
+alter table nome_Tabela add column nome_coluna tipo_coluna;
+alter table pessoas add column idade integer;
+
+Remover uma Coluna na Tabela:
+alter table nome_tabela drop column nome_coluna;
+alter table pessoas drop column idade;
+
+Alterar nome da Coluna;
+alter table nome_tabela rename column nome_coluna to nome_novo_coluna
+alter table pessoas rename column idade to idades;
+
+Alterar o nome da tabela:
+alter table nome_antigo rename to nome_novo;
+alter table cargos rename to "Cargos";
+
+Alterar o tipo da coluna:
+alter table nome_tabela alter column nome_coluna type tipo_coluna;
+alter table pessoas alter column idade type varchar(3);
+//parar converter um string em integer ele pede um cast
+alter table pessoas alter column idade type integer USING idade::integer
+
+O postgress é caseSensitive
+para utilizar palavras compostas devemos usar " "
+create table "pessoaJuridica"(
+id int not null); 
+// para casos com select é mais comum.
+
+Inserir dados na tabela
+insert into pessoas(id, nome) values (1, 'João da Silva')
+//ou
+insert into pessoas(id, nome) values 
+(2, 'Maria de Souza'),
+(3, 'Fernando Cruz');
+//ou
+insert into pessoas values (4, 'Mario Fernando')
+//ou
+insert into pessoas(id, nome, apelido) values (5, 'Adão', 'maninho');
+
+Buscar dados das pessoas;
+
+select * from pessoas;
+select nome, apelido from pessoas;
+select nome, apelido from pessoas where id = 1;
+select nome, apelido from pessoas where id >= 3;
+select nome, apelido from pessoas where id <> 2;
+//    <> diferente
+
+Buscar lista e ordenar
+select * from pessoas order by id;
+select * from pessoas order by nome;
+
+Atualizar dados da tabela
+uptade pessoas set apelido = 'mano' where id =1;
+// nao esquecer do where, senao ele altera todos os dados da lista
+//alterando dois campos simultaneos
+update pessoas set apelido = 'maninha', nome = 'Eva Oliveira' where id = 2;
+
+Remover dados da tabela
+delete from pessoas where id = 3;
+
+//Agrupar por marcas
+select marca, count(marca) from veiculos group by marca;
+select marca, avg(ano) from veiculos group by marca;
+select marca, avg(ano) from veiculos group by marca having avg(ano) > 2012;
+*******************************************************************************
+
+/////////////Exercicios
+1) Crie uma base de dados com o nome rhDatabase;
+2) Dentro da base de dados rhDatabase inclua a tabela com o nome
+funcionarios, e que possua as colunas id , nome
+3) Inclua a coluna idade com o tipo varchar(100)
+4) inclua a coluna setor com o tipo int;
+5) altere a coluna setor para tipo varchar(100)
+6) crie a coluna dependentes com tipo int
+7) remova a coluna dependentes
+8) crie a tabela Cargos com os campo id int, nome carchar(100), descricao carchar(1000)
+9) altere a coluna nome para varchar(255)
+10) Crie a tabela setores com os campos id int e nome varchar
+
+11) Crie uma base de dados prodDatabase;
+	create database "prodDatabase";
+12) Dentro da base de dados prodDatabase inclua a tabela Produto com as seguintes colunas:
+id int, nome varchar(100), valor decimal(10,4)
+	create table "Produto " (
+id int, 
+nome varchar(100), 
+valor decimal(10,4)
+);
+13) Dentro da base de dados prodDatabase inclua a tabela Pedido com as seguintes Colunas:
+id int, codigo int, cliente varchar(255, dataCriacao datetime(timestamp ou date)
+create table "Pedido " (
+id int,
+codigo int,
+cliente varchar(255),
+dataCriacao date
+);
+14) Dentro da base de dados prodDatabase inclua a tabela PedidoItem com as seguintes Colunas:
+idPedido int, idProduto int, quantidade int
+create table "PedidoItem" (
+idPedido int, 
+idProduto int, 
+quantidade int
+);
+15) Dentro da base de dados prodDatabase inclua a tabela Entregas com as seguintes Colunas:
+idPedido int, rua varchar(100), numero varchar(1000), bairro varchar(100) cidade varchar(255)
+create table "Entregas" (
+idPedido int, 
+rua varchar(100), 
+numero varchar(1000), 
+bairro varchar(100), 
+cidade varchar(255)
+);
+16) Na tabela Entregas altere a coluna rua para varchar(255)
+alter table "Entregas" alter column rua type varchar(255);
+17) Na tabela Entregas inclua a coluna complemento varchar(255)
+alter table "Entregas" add column complemento varchar(255);
+18) Na tabela Entregas inclua a coluna cep varchar(8)
+alter table "Entregas" add column cep varchar(8)
+19) Na tabela Entregas inclua a coluna estado varchar(100)
+alter table "Entregas" add column estado varchar(100);
+20) Remova a coluna Estado da tabela entregas
+alter table "Entregas" drop column estado;
+21) Apague a base de dados rhDatabase;
+// para apagar é necessario fechar, o app de comandos e reconectar na database
+drop database rhDatabase;
+22) Apague a base de dados prodDatabase;
+drop database "prodDatabase";
+23) Crie uma base de dados chamada capitulo004;
+create database capitulo004;
+24) Crie uma tabela Produtos com as colunas:
+id int primary key, nome varchar(200), preco decimal(10,2)
+create table Produtos(
+id int primary key, nome varchar(200), preco decimal(10,2)
+);
+Insira os seguintes valores na tabela produtos
+id	nome			valor
+1	'Televisor 32pol' 	1300.00
+2	'Sofá 3 Lugares'	2500.00
+3	'Jogo de Cozinha'	5600.00
+4	'Guarda Roupa'		2150.90	
+insert into Produtos(id, nome, preco) values 
+(1,'Televisor 32pol',1300.00),
+(2,'Sofá 3 Lugares',2500.00),
+(3,'Jogo de Cozinha',5600.00),
+(4,'Guarda Roupa', 2150.90);
+
+25) Altere o valor do televisor para 1399.90
+update produtos set preco = 1399.90 where id =1;
+26) altere o nome do jogo de cozinha para "jogo de cozinha modular"
+update produtos set nome = 'jogo de cozinha modular' where id =3;
+27) Selecione todos os produtos
+select * from Produtos;
+28) Selecione apenas o produto com id = 1
+select * from produtos where id =1;
+29) Selecione apenas o nome e o valor de todos os produtos
+select nome, preco from produtos;
+30) Remova o produto co id=4
+delete from produtos where id = 4;
+31) Escreva o comando que cria a tabela Carro com os seguintes atributos:
+create table "Carros" 
+(id int not null,
+marca varchar(50) not null,
+modelo varchar(50) not null,
+cor varchar(15) not null,
+ano_fabricacao int not null,
+ano_modelo int not null,
+placa varchar(7) not null);
+
+32) incluir as seguintes informações na tabela Carro:
+insert into "Carros" 
+(id, marca, modelo, cor, ano_fabricacao, ano_modelo, placa)
+values
+(1, 'Ford', 'New Fiesta', 'Branco', 2014, 2014, 'DDD0011'),
+(2, 'Ford','Focus', 'Preto', 2014, 2015, 'FFP0000'),
+(3, 'Ford', 'Fusion', 'Prata', 2015, 2015, 'FUP1212'),
+(4, 'Fiat', '147', 'Branco', 1983, 1983, 'INU1313'),
+(5, 'Fiat', 'Uno', 'Vermelho', 2001, 2001, 'FUV1414'),
+(6, 'BMW', '320I', 'Prata', 2015, 2015, 'BMP1616');
+
+33) Selecionar os carros da marca Ford
+select * from "Carros" where marca = 'Ford';
+34) Selecionar os carros da marca Fiat
+select * from "Carros" where marca = 'Fiat';
+35) Selecionar os carros da com ano de fabricacao menor que 2000
+select * from "Carros" where ano_fabricacao < 2000;
+36) Selecionar os carros da com ano modelo = 2015
+select * from "Carros" where ano_modelo = 2015;
+37) Selecionar os carros de cor Prata
+select * from "Carros" where cor = 'Prata';
+
+Aula27 - 17/10/2018
+https://www.postgresql.org/docs/9.3/static/
+select CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP, LOCALTIME, LOCALTIMESTAMP
+
+Adicionar ENUM no DB e no Java para garantir os dados
+
+CREATE TYPE mood AS ENUM ('sad', 'ok', 'happy');
+CREATE TABLE person (
+    name text,
+    current_mood mood
+);
+INSERT INTO person VALUES ('Moe', 'happy');
+SELECT * FROM person WHERE current_mood = 'happy';
+ name | current_mood 
+------+--------------
+ Moe  | happy
+(1 row)
+
+create table contatos (
+id serial not null primary key,
+nome varchar(100) not null,
+email varchar(120) not null,
+telefone varchar (11)
+);
+insert into contatos (nome, email, telefone) values 
+('Eduardo','edu@edu.com.br','99999-8888'),
+('Maria','maria@gmail.com.br','98888-8888'),
+('Jose','jose@gmail.com.br','98888-7894');	
+
+create table produtos(
+id serial not null primary key,
+nome varchar(100) not null,
+preco decimal(10,2) not null
+);
+
+insert into produtos (nome, preco)values
+('Produto 01', 10.99),
+('Produto 02', 57.80),
+('Produto 03', 200.00),
+('Produto 04', 5.15),
+('Produto 05', 29.90),
+('Produto 06', 14.87)
+;
+
+select count(*) from produtos;
+select count(*) as total from produtos;
+select count(*) as total from produtos where preco > 50;
+select * from produtos;
+select max(preco) as total from produtos;
+select * from produtos where preco = (select max(preco) as "maisCaro" from produtos);
+select min(preco) as "maisBarato" from produtos;
+select avg(preco) as "media" from produtos;
+select * from produtos where preco >= (select avg(preco) as "media" from produtos);
+select sum(preco) as "total" from produtos;
+
+select abs(preco) from produtos // traz os valores sem sinal
+select power(preco, 2) from produtos // faz todos os precos na potencia 2
+select sqrt(16) // raiz quadrada
+select trunc(preco) from produtos// retorna os valores inteiros
+select trunc(preco,1) from produtos // retorna os valores com 1 casa
+select round(preco,1), preco from produtos // arredonda os valores com 1 casa
+
+select * from contatos where nome = 'Edu"; // busca somente o Edu
+select * from contatos where nome like 'Edu%'; // Busca todos com Edu  o % pega todos items apos
+select * from contatos where nome like '%Edu'; // qualquer coisa antes de Edu 
+select * from contatos where nome like '%u%'; // qualquer nome que tenha u
+select upper(nome), nome from contatos; // busca todos nomes com UperCase
+select lower(nome), nome from contatos; // busca todos nomes com LowerCase
+select substr(nome, 1,2) from contatos // utilizando Substring apartir do caracter 1 pega 2 caracteres
+select length(nome) as "Qtdd Letras", nome from contatos // saber a quantidade de caracteres
+select length(trim('     Maria     ')); trim =  remove os espaços em branco
+select replace ('Joao da Silva ', ' ', ''); // retira os espaços em branco
+
+////////////Exercicio
+Cire uma DB com o nome CasasBahia;
+	create database "CasasBahia";
+Crie uma tabela produtos com as seguintes colunas:
+	create table produtos (
+	id serial not null primary key,
+	nome varchar(100),
+	preco decimal(10,2)
+	);
+Insira os seguintes produtos
+	insert into produtos (nome, preco) values
+	('Televisao LED 42', 1400.40),
+	('Televisao LED 32', 1250.30),
+	('Aparelho de Jantar Tramontina', 800.0),
+	('Playstation 4', 2400.00),
+	('Playstation 3', 720.99),
+	('Sofa', 2400.60),
+	('Fritadeira Elétrica', 200),
+	('Forno Microondas 201', 630.90),
+	('Banheira Hidromassagem G', 19999.90),
+	('Roupeiro 6 portas', 1110.10),
+	('Notebook Del Vostro', 2200.40),
+	('Iphone 6S', 3500.23);
+
+Selecione os produtos com preco entre 1000 e 2000
+	select * from produtos where preco > 1000 and preco < 2000;
+Selecione os produtos cujo nome tenha Televisao
+	select * from produtos where nome like 'Televisao%';
+Selecione ps produtos cujo nome tenha Playstation
+	select * from produtos where nome like 'Playstation%';
+Selecione a média de preços dos produtos
+	select avg(preco) from produtos;
+Selecione o preço do produto mais caro;
+	select max(preco) from produtos;
+Selecione o preço do Produto mais barato
+	select min(preco) from produtos;
+Selecione a soma do preço de todos os produtos;
+	select sum(preco) from produtos;
+Selecione o nome de todos os produtos em caixa alta;	
+	select upper(nome) from produtos;
+Selecione o nome de todos os produtos em caixa baixa;
+	select lower(nome) from produtos;
+Selecione a data atual;
+	select CURRENT_DATE;
+	select now()
+Selecione a quantidade de caracteres do nome de cada produto;
+	select length(nome) as "Qtdd Letras", nome from produtos;
+Selecione os primeiros 7 caracteres dos nomes de cada produto;
+	select substr(nome,1,7) from produtos;
+Selecione os 5 caracteres a partir da 3a posição dos nomes de cada produtos
+	select substr(nome,3,5) from produtos
+Selecione a quantidade de produtos cadastrados;
+	select count(*) as "Qtdd Produtos" from produtos
+Selecione a quantidade de produtos cadastrados que possuem valor maior que 1000;
+	select count(*) as "Qtdd Produtos" from produtos where preco >= 1000;
+Selecione a quantidade de produtos cadastrados que possuem valor menor que 1000;
+	select count(*) as "Qtdd Produtos" from produtos where preco <= 1000;
+Selecione a soma dos produtos que possuem valor maior que 1300
+	select sum(preco) from produtos where preco >= 1300;
+Selecione o maior valor dos produtos que possuem valor menor que 1500
+	select max(preco) from produtos where preco <= 1500;
+Selecione a media do valor dos produtos que possuem valor menor que 1200
+	select avg(preco) from produtos where preco <= 1200;
+Selecione a media do valor dos produtos que possuem valor maior que 1000
+	select avg(preco) from produtos where preco >= 1000;
+Selecione a media do valor dos produtos que possuem valor entre 10000 e 20000
+	select avg(preco) from produtos where preco >= 10000 and preco <= 20000;
+Selecione o nome e o preco do produto com maior preco;
+	select nome, preco from produtos where preco = (select max(preco) from produtos);
+
+Crie uma tabela com nome Contatos com as seguintes Colunas:
+create table "Contatos"(
+codigo serial not null primary key,
+nome varchar(100) not null,
+email varchar(120)
+);
+Insira os dados abaixo:
+insert into "Contatos" (nome, email) values
+('Maria', 'maria@teste.com'),
+('Marcelo', 'marcelo@teste.com'),
+('Adriana', 'adriana@teste.com'),
+('Fernando', 'fernando@teste.com'),
+('Gregório', 'greg@teste.com'),
+('Anderson', 'anderson@teste.com'),
+('Fabiana', 'fabiana@teste.com'),
+('Deise', 'deise@teste.com'),
+('Damaris', 'damaris@teste.com'),
+('Daniel', 'daniel@teste.com'),
+('Claudia', 'claudia@email.com'),
+('Claudenice', 'claudenice@gmail.com'),
+('Claudilene', 'claudilene@gmail.com'),
+('Rafael', 'rafael@hotmail.com'),
+('Rafaela', 'rafaela@terra.com');
+
+Escreva o comando utilizado para selecionar todos os contatos da tabela Contatos
+	select * from "Contatos";
+Escreva o comando utilizado para selecionar todos os nomes da tabela Contatos
+	select nome from "Contatos";
+Escreva o comando utilizado para selecionar todos os emails da tabela Contatos
+	select email from "Contatos";
+Escreva o comando utilizado para selecionar todos os contatos que o nome inicia com 'A'
+	select * from "Contatos" where nome like 'A%';
+Escreva o comando utilizado para selecionar todos os contatos que o nome inicia com 'C'
+	select * from "Contatos" where nome like 'C%';
+Escreva o comando utilizado para selecionar todos os contatos que o nome inicia com 'cl'
+	select * from "Contatos" where nome like 'cl%';
+	select * from "Contatos" where lower(nome) like 'cl%';
+Escreva o comando utilizado para selecionar todos os contatos que possuem o código >10
+	select * from "Contatos" where codigo >10;
+Escreva o comando utilizado para selecionar todos os contatos que possuem o email @teste
+	select * from "Contatos" where email like '%@teste%';
+Escreva o comando utilizado para selecionar todos os contatos que possuem o email @hotmail
+	select * from "Contatos" where email like '%@hotmail%';
+Escreva o comando utilizado para selecionar todos os contatos que possuem o email @gmail
+	select * from "Contatos" where email like '%@gmail%';
+Escreva o comando utilizado para selecionar todos os contatos que possuem o email @terra
+	select * from "Contatos" where email like '%@terra%';
+Escreva o comando utilizado para selecionar todos os contatos que possuem o email @teste
+ e código menor que 7
+	select * from "Contatos" where email like '%@teste%' and codigo <7 ;
+Escreva o comando utilizado para deletar o Contato que possui o email claudenice@gmail.com
+	delete from "Contatos" where email = 'claudenice@gmail.com';
+Escreva o comando para excluir os Contatos que possuem o código >10;
+	delete from "Contatos" where codigo > 10;
+Escreva o comando para apagar todos dados da tabela Contatos;
+	delete from "Contatos";
 
 
+create table veiculos(
+id serial not null primary key,
+marca varchar(50) not null,
+modelo varchar(50) not null,
+ano int not null
+);
+
+insert into veiculos(marca, modelo, ano)
+values
+('Ford','Ka', 2007),
+('Ford','Fusion', 2018),
+('Ford','Ranger', 2017),
+('Chevrolet','Corsa', 2003),
+('Chevrolet','Onix', 2017),
+('Fiat','Chronos', 2018),
+('Fiat','Tempra', 1996),
+('Fiat','Palio', 2015),
+('Fiat','Uno', 2018);
+
+
+select marca, count(marca) from veiculos group by marca;
+select marca, avg(ano) from veiculos group by marca;
+select marca, avg(ano) from veiculos group by marca having avg(ano) > 2012;
+select marca, modelo avg(ano) from veiculos group by marca, modelo having avg(ano) > 2012;
+select count(*),ano from veiculos group by ano;
