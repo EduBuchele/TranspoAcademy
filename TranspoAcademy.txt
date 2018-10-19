@@ -1184,3 +1184,344 @@ select marca, avg(ano) from veiculos group by marca;
 select marca, avg(ano) from veiculos group by marca having avg(ano) > 2012;
 select marca, modelo avg(ano) from veiculos group by marca, modelo having avg(ano) > 2012;
 select count(*),ano from veiculos group by ano;
+
+Aula 28 - 18/10/2018
+
+select to_char(now(), 'DD/MM/YYYY');
+https://www.postgresql.org/docs/current/static/functions-formatting.html
+
+
+create table pagamentos (
+	id serial not null primary key,
+	valor decimal(10,2) not null,
+	"dataPrevisao" timestamp without time zone not null,
+	"dataPagamento" timestamp without time zone not null,
+	descricao varchar(500) not null
+);
+
+insert into pagamentos(valor,"dataPrevisao", "dataPagamento",descricao)
+values
+(29.90, to_timestamp('05/09/2018 23:59', 'DD/MM/YYYY HH24:MI'), null, 'Prestação 01'),
+(200.00, to_timestamp('07/10/2018 10:20', 'DD/MM/YYYY HH24:MI'), to_timestamp('07/10/2018 10:20', 'DD/MM/YYYY HH24:MI'), 'CELESC'),
+(990.00, to_timestamp('13/08/2018 23:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('13/08/2018 13:30', 'DD/MM/YYYY HH24:MI'), 'Seguro Automóvel'),
+(29.90, to_timestamp('05/10/2018 23:59', 'DD/MM/YYYY HH24:MI'), null, 'Prestação 02'),
+(290.90, to_timestamp('15/10/2018 23:59', 'DD/MM/YYYY HH24:MI'), null, 'Prestação 01'),
+(29.90, to_timestamp('05/10/2018 23:59', 'DD/MM/YYYY HH24:MI'), null, 'Cartão 01'),
+(59.90, to_timestamp('05/09/2018 23:59', 'DD/MM/YYYY HH24:MI'), null, 'Telefone'),
+(129.27, to_timestamp('18/11/2018 23:59', 'DD/MM/YYYY HH24:MI'), null, 'Luz'),
+(499.89, to_timestamp('20/10/2018 23:59', 'DD/MM/YYYY HH24:MI'), null, 'Curso Nodejs'),
+(29.90, to_timestamp('05/12/2018 23:59', 'DD/MM/YYYY HH24:MI'), null, 'Prestação 03');
+
+select * from pagamentos
+
+//pagamentos atrasados
+select * from pagamentos where "dataPrevisao" < now() and "dataPagamento"is null;
+select to_char("dataPrevisao",'DD/MM') from pagamentos where "dataPrevisao" < now() and "dataPagamento"is null;
+select to_char("dataPrevisao",'DD'), to_char("dataPrevisao",'month') from pagamentos where "dataPrevisao" < now() and "dataPagamento"is null;
+//pagamentos adiantados
+select to_char("dataPrevisao",'DD/MM') from pagamentos where "dataPagamento" < "dataPrevisao";
+
+create table pais (
+	id serial not null,
+	nome varchar(100) not null,
+	primary key(id)
+);
+
+create table filho(
+	id serial not null,
+	nome varchar(100) not null,
+	"paiId" bigint, 
+	primary key(id),
+	foreign key("paiId") references pais(id)
+);
+ ************* inner join
+// traz o que é comum nas duas tabelas
+select
+	fl.id,
+	fl.nome, 
+	pa.nome as pai
+from 
+	filho as fl
+inner join 
+	pais as pa 
+on 
+	pa.id = fl."paiId";
+
+*************** left join
+// traz todos os dados do left, tendo relação ou nao com a 2a tabela
+// traz todos os filhos, mesmo tendo pai null
+select
+	fl.id,
+	fl.nome, 
+	pa.nome as pai
+from filho as fl
+left join pais as pa 
+on pa.id = fl."paiId";
+
+
+*************** right join
+select
+	fl.id,
+	fl.nome, 
+	pa.nome as pai
+from filho as fl
+left join pais as pa 
+on 
+	pa.id = fl."paiId" 
+where 
+	pa.id is null;
+
+
+select
+	fl.id,
+	fl.nome, 
+	pa.nome as pai
+from filho as fl
+right join pais as pa 
+on pa.id = fl."paiId" 
+where fl.id is null;
+
+===============================
+exercicio
+create table funcionarios(
+	id serial not null primary key,
+	nome varchar (100) not null
+	);
+create table dependentes(
+	id serial not null primary key,
+	nome varchar (100) not null
+	);
+create table "funcionarios_dependentes"(
+	"funcId" bigint not null,
+	"dependId" bigint not null,
+	foreign key("funcId") references funcionarios(id),
+	foreign key("dependId") references dependentes(id)
+	);
+
+insert into funcionarios(nome) values
+('Adão'),('Eva'),('João'),('Maria'),('Ana'),('Fernando'),('Mariana');
+
+insert into dependentes(nome) values
+('Adão Jr'),('Amanda'),('Joana'),('Clarisse'),('Carmen'),('Diego'),('Mara');
+
+insert into "funcionarios_dependentes"("funcId","dependId") values
+(1,1),(2,1),(3,2),(4,2),(5,3),(5,4),(5,5);
+		
+//zerar tabela
+truncate table dependentes restart identity cascade
+
+//tabela relação funcionario com dependentes
+select
+	func.nome as funcionario, 
+	dep.nome as dependente 
+from 
+	dependentes as dep
+inner join 
+	"funcionarios_dependentes" as fd 
+on 
+	fd."dependId" = dep.id
+inner join
+	funcionarios as func
+on 
+	func.id = fd."funcId";
+
+
+//tabela com quantidades de filhos pra cada funcionarios
+select	func.nome as funcionario, 
+	count(dep.nome)
+from dependentes as dep
+inner join "funcionarios_dependentes" as fd on 	fd."dependId" = dep.id
+inner join funcionarios as func on func.id = fd."funcId"
+group by func.nome
+
+// Crie uma tabela autor com os seguintes atributos:
+create table autor(
+id serial not null primary key,
+nome varchar(50) not null,
+sobrenome varchar(100) not null,
+"data_nascimento" date not null
+);
+
+create table categorias(
+id serial not null primary key,
+nome varchar(50) not null
+);
+
+create table tags(
+id serial not null primary key,
+nome varchar(50) not null
+);
+
+create table livros(
+id serial not null primary key,
+titulo varchar(200) not null,
+"data_publicacao" date not null,
+edicao int not null,
+sequencial int not null,
+"categoriaId" bigint not null,
+foreign key(categoriaId) references categorias(id)
+);
+
+create table "livros_autor"(
+	"livroId" bigint not null,
+	"autorId" bigint not null,
+	foreign key("livroId") references livros(id),
+	foreign key("autorId") references autor(id)
+	);
+create table "livros_tags"(
+	"livroId" bigint not null,
+	"tagId" bigint not null,
+	foreign key("livroId") references livros(id),
+	foreign key("tagId") references tags(id)
+	);
+
+Cadastre:
+5 autores
+	insert into autor (nome, sobrenome, "data_nascimento")
+	values
+	('Agatha', 'Christie', to_timestamp('12/01/1976', 'DD/MM/YYYY')),
+	('Vinicius', ' de Morais', to_timestamp('13/10/1913', 'DD/MM/YYYY')), 
+	('Carlos', ' Drummond de Andrade', to_timestamp('31/10/1902', 'DD/MM/YYYY')),
+	('Thiago', 'Leite e Carvalho', to_timestamp('19/04/1986', 'DD/MM/YYYY')), 
+	('Rodrigo', 'Turini', to_timestamp('30/07/1992', 'DD/MM/YYYY')); 
+4 categorias
+	insert into categorias (nome)
+	values
+	('Literatura Brasileira'),
+	('Literatura Estrangeira'),
+	('Informatica'),
+	('Poemas'),
+	('Contos');
+
+8 tags
+	insert into tags (nome)
+	values('JAVA'),('Orientação a Objetos'),('Historia Real'),
+	('Portugues'),('Ingles'),('Romantico'),('Maiores 18 anos'),('Ficção');
+10 Livros com ao menos 2 livros por categoria
+	insert into livros (titulo, "data_publicacao", edicao, sequencial, categoriaId)
+	values
+	('Orientação a Objetos', to_timestamp('01/09/2016', 'DD/MM/YYYY'), 1, 1, 3), 
+	('Java 9 -  Interativo, reativo e modularizado', to_timestamp('01/09/2017', 'DD/MM/YYYY'), 1, 1, 3), 
+	('Contos de aprendiz', to_timestamp('21/06/1951', 'DD/MM/YYYY'), 1, 1, 5), 
+	('Amar se aprende amando', to_timestamp('26/09/1987', 'DD/MM/YYYY'), 1, 1, 4), 
+	('Para Viver um Grande Amor', to_timestamp('04/10/1962', 'DD/MM/YYYY'), 2, 1, 1), 
+	('Nova Antologia Poética', to_timestamp('21/10/2010', 'DD/MM/YYYY'), 2, 2, 4), 
+	('Ten Little Niggers', to_timestamp('06/11/1939', 'DD/MM/YYYY'), 1, 1,2), 
+	('Assassinato no Campo de Golfe', to_timestamp('07/04/1923', 'DD/MM/YYYY'), 1, 1,2), 
+	('O Cinema de Meus Olhos', to_timestamp('29/11/1991', 'DD/MM/YYYY'), 1, 1, 1), 
+	('Contos Plausíveis', to_timestamp('27/09/1994', 'DD/MM/YYYY'), 2, 1, 5)
+10 Livros_autor com ao menos 1 autor para cada livro
+	insert into livros_autor ("livroId","autorId")
+	values
+	(1,4),
+	(2,5),
+	(3,3),
+	(4,3),
+	(5,2),
+	(6,2),
+	(7,1),
+	(8,1),
+	(9,2),
+	(10,3)
+	
+10 livros_tags com ao menos 1 tag por livro
+insert into "livros_tags" ("livroId",	"tagId")
+	values
+	(1,1),(1,2),
+	(2,1),
+	(3,3),(3,4),
+	(4,6),
+	(5,6),(5,7),
+	(6,4),
+	(7,5),(7,7),
+	(8,8),(8,7),
+	(9,4),
+	(10,4)
+
+01) Selecione os livros juntamente com suas categorias
+	select	liv.titulo as titulo, 
+	cat.nome as categoria
+	from livros as liv
+	inner join "categorias" as cat
+	on liv."categoriaId" = cat.id;
+
+
+02) Selecione os livros com suas tags
+	select	liv.titulo as titulo, 
+	tg.nome as tag
+	from livros as liv
+	inner join "livros_tags" as lt
+	on lt."livroId" = liv.id
+	inner join "tags" as tg
+	on lt."tagId" = tg.id;
+
+03) Selecione os livros com seus autores
+	select	liv.titulo as titulo, 
+	aut.nome,
+	aut.sobrenome
+	from livros as liv
+	inner join "livros_autor" as la
+	on la."livroId" = liv.id
+	inner join "autor" as aut
+	on la."autorId" = aut.id;
+
+04) Escolha uma tag e selecione todos os livros que possuem a tag escolhida.
+A consulta deve trazer as informações do livro, categoria e seus autores.
+	select	
+	tg.nome as tag,
+	liv.titulo as titulo, 
+	cat.nome as categoria,
+	aut.nome as autor, 
+	aut.sobrenome
+	from livros as liv
+	inner join "livros_tags" as lt
+	on lt."livroId" = liv.id
+	inner join "tags" as tg
+	on lt."tagId" = tg.id
+	inner join "categorias" as cat
+	on liv."categoriaid" = cat.id 
+	inner join "livros_autor" as la
+	on la."livroId" = liv.id
+	inner join "autor" as aut
+	on la."autorId" = aut.id	
+	where tg.nome = 'JAVA';
+
+05) Selecione a quantidade de livros agrupados por categoria
+	select	cat.nome,
+	count(cat.id)
+	from livros as liv
+	inner join "categorias" as cat
+	on liv."categoriaid" = cat.id
+	group by cat.nome
+
+06) Selecione a quantidade de livros agrupados por tag
+	select	tg.nome,
+	count(tg.id)
+	from livros as liv
+	inner join "livros_tags" as lt
+	on lt."livroId" = liv.id
+	inner join "tags" as tg
+	on lt."tagId" = tg.id
+	group by tg.nome
+
+07) Selecione a quantidade de livros agrupados por autor
+	select	aut.nome, 
+	aut.sobrenome,
+	count(aut.id)
+	from livros as liv
+	inner join "livros_autor" as la
+	on la."livroId" = liv.id
+	inner join "autor" as aut
+	on la."autorId" = aut.id
+	group by aut.nome, aut.sobrenome
+
+08) Selecione os autores que escreveram mais de um livro.
+	select	aut.nome, 
+	count(aut.id)
+	from livros as liv
+	inner join "livros_autor" as la
+	on la."livroId" = liv.id
+	inner join "autor" as aut
+	on la."autorId" = aut.id
+	group by aut.nome
+	having count(aut.id)>1;
