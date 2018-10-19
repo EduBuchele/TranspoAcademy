@@ -1,0 +1,311 @@
+01) 	create database "db_teste2";
+02) 
+	create table "Carro"(
+	id serial not null primary key,
+	marca varchar(50) not null,
+	modelo varchar(50) not null,
+	cor varchar(15) not null,
+	ano_fabricacao int not null,
+	ano_modelo int  not null,
+	placa varchar(7) not null
+	);
+
+
+03) 
+	insert into "Carro" (marca, modelo, cor, ano_fabricacao, ano_modelo, placa)
+	values
+	( 'Ford','New Fiesta','Branco', 2014, 2014, 'DDD0011'),
+	('Ford','Focus','Preto', 2014, 2015,'FFP0000'),
+	('Ford', 'Fusion', 'Prata', 2015, 2015,'FUP1212'),
+	('Fiat','147','Branco',1983, 1983,  'INU1313'),
+	('Fiat', 'Uno', 'Vermelho', 2001, 2001, 'FUV1414'),
+	('BMW', '320I', 'Prata', 2015, 2015, 'BMP1616');
+
+04) Selecionar os carros da marca Ford
+	select * from "Carro" where marca = 'Ford';
+05) Selecionar os carros da marca Fiat
+	select * from "Carro" where marca = 'Fiat';
+06) Selecionar os carros com ano de fabricação menor que 2000
+	select * from "Carro" where ano_fabricacao < 2000;
+07) Selecionar os carros com ano_modelo 2015 
+	select * from "Carro" where ano_modelo = 2015;
+08) Selecionar os carros de cor Prata 
+	select * from "Carro" where cor = 'Prata';
+
+
+09)Criar a tabela Cargo  
+	create table "Cargo" (
+	"idCargo" integer not null primary key,
+        "nomeCargo" VARCHAR(50),
+	"salarioBruto"	DECIMAL(10,2),
+	"descontoSalario" DECIMAL(10,2)
+	);
+10)Criar a tabela Colaborador  conforme informações abaixo:
+	create table "Colaborador" (
+	"idColaborador"	integer not null primary key, 
+	"nomeColaborador"	VARCHAR(50),
+	"idCargo"	integer
+	);
+	
+11)Criar a tabela Colaborador_Ferias  conforme informações abaixo:
+	create table "Colaborador_Ferias" (
+	"idColaborador" integer not null, 
+	"data_saida" date,
+	"data_retorno" date,
+	foreign key("idColaborador" ) references "Colaborador"("idColaborador")
+	);	
+	
+12) Adicione os seguintes dados na tabela Cargo:
+insert into "Cargo" ("idCargo", "nomeCargo", "salarioBruto", "descontoSalario")
+values
+(1, 'Estagiário',  850.00, 000.00),
+(2, 'Desenvolvedor Java Júnior - SE', 1150.00, 250.00),
+(3, 'Desenvolvedor Java Pleno - SE',  1900.00, 400.00),
+(4, 'Desenvolvedor Java Senior  - SE', 3000.00, 600.00),
+(5, 'Designer Gráfico', 1580.00, 360.00),
+(6, 'Analista de Marketing', 2400.00,  420.00),
+(7, 'Desenvolvedor Java Web Júnior', 1230.00, 260.00),
+(8, 'Desenvolvedor Java Web Pleno', 2170.00, 680.00),
+(9, 'Desenvolvedor Java Senior', 3400.00,  700.00),
+(10, 'Suporte Nível 1', 900.00, 120.00),
+(11, 'Suporte Nível 2', 1600.00, 360.00),
+(12, 'Suporte Nível 3', 2100.00, 475.00),
+(13, 'Web Master Nivel 1', 1500.00, 356.00),
+(14, 'Web Master Nível 2', 2350.00, 580.00),
+(15, 'Web Master Nível 3', 3600.00, 720.00),
+(16, 'Analista de Projetos', 5000.00, 1020.00),
+(17, 'Projetista', 8000.00, 1900.00),
+(18, 'Arquiteto de Software', 7500.00, 1750.00),
+(19, 'Implantador de Sistemas', 4600.00, 850.00),
+(20, 'Desenvolvedor Java Mobile', 6000.00 ,980.00);
+
+13)Adicione os seguintes Colaboradores na tabela Colaborador:
+insert into "Colaborador" ("idColaborador", "nomeColaborador", "idCargo") values
+(1,	        'Daiana Cristina',		null),	     	
+(2,		'Andréas Silver',		5),
+(3,		'Juliana Ribeiro',		13),
+(4,		'Amanda Schultz',		7),
+(5,		'Cristiana Lobo',		10),
+(6,		'Brenda Alvarez',		6),
+(7,		'Carla Oliveira',		16),
+(8,		'Orlando Pamplona',		19),
+(9,		'Alex Marques',			18),
+(10,		'Santhyago Alves',		20),
+(11,		'Júlio César',			1),
+(12,		'Diego de Lima',		20),
+(13,		'Cleberson Kist',		6),
+(14,		'Everton Duarte',		9),
+(15,		'Vanessa Montres',		5),
+(16,		'Bianca Vasconselos',		15),
+(17,		'Daniel Silva',			11),
+(18,		'Ellen Moreira',		17),
+(19,		'Tatiana Holtrup',		3),
+(20,		'Viviane de Souza',		14),
+(21,		'Paloma Oliveira',		20),
+(22,		'Jéssica Mattos	',		2),
+(23,		'Óliver Duvivier',		4),
+(24,		'Luana Silveira',		1),
+(25,		'Jennifer Verciani',		5),
+(26,		'Mariana Nascimento',		8),
+(27,		'Mônica Silvestre',		11),
+(28,		'Gabriela Novaes',		12),
+(29,		'George Marcel',		15),
+(30,		'Hélio Castro',			1),
+(31,		'Emanuela Gonzales',		20),
+(32,		'Priscila Medeiros',		12),
+(33,		'Bruna Conceição',		4),
+(34,		'Andriane Coelho',		7),
+(35,		'Rebeca Bortolato',		15),
+(36,		'Hellen Cristiana', 		18),
+(37,		'Gustavo Souza',		5),
+(38,		'Élton Civieiro',		4),
+(39,		null	,			17),
+(40,		'Ramon Duarte',			20),
+(41,		'Fernando Duve',		3),
+(42,		null		,		5),
+(43,		'Patrícia Alves',		16),
+(44,		'Larissa Torres',		7),
+(45,		'Elisiane Peris',		13);
+
+14) Adicione os seguintes dados  na tabela Colaborador_Ferias:
+insert into "Colaborador_Ferias" ("idColaborador", "data_saida", "data_retorno") values
+(1,	        to_timestamp('03/01/2014', 'DD/MM/YYYY'),       to_timestamp('03/02/2014', 'DD/MM/YYYY')), 
+(2,		to_timestamp('03/01/2014', 'DD/MM/YYYY'), 	to_timestamp('03/01/2014', 'DD/MM/YYYY')), 
+(3,		to_timestamp('03/01/2014', 'DD/MM/YYYY'), 	to_timestamp('03/01/2014', 'DD/MM/YYYY')), 
+(4,		to_timestamp('03/01/2014', 'DD/MM/YYYY'), 	to_timestamp('03/01/2014', 'DD/MM/YYYY')), 
+(5,		to_timestamp('03/01/2014', 'DD/MM/YYYY'), 	to_timestamp('03/01/2014', 'DD/MM/YYYY')), 
+(6,		to_timestamp('03/01/2014', 'DD/MM/YYYY'), 	to_timestamp('03/01/2014', 'DD/MM/YYYY')), 
+(7,		to_timestamp('03/01/2014', 'DD/MM/YYYY'), 	to_timestamp('03/01/2014', 'DD/MM/YYYY')), 
+(8,		to_timestamp('04/02/2014', 'DD/MM/YYYY'), 	to_timestamp('07/03/2014', 'DD/MM/YYYY')), 
+(9,		to_timestamp('04/02/2014', 'DD/MM/YYYY'), 	to_timestamp('07/03/2014', 'DD/MM/YYYY')), 
+(10,		to_timestamp('04/02/2014', 'DD/MM/YYYY'), 	to_timestamp('07/03/2014', 'DD/MM/YYYY')), 
+(11,		to_timestamp('04/02/2014', 'DD/MM/YYYY'), 	to_timestamp('07/03/2014', 'DD/MM/YYYY')), 
+(12,		to_timestamp('04/02/2014', 'DD/MM/YYYY'), 	to_timestamp('07/03/2014', 'DD/MM/YYYY')), 
+(13,		to_timestamp('04/02/2014', 'DD/MM/YYYY'), 	to_timestamp('07/03/2014', 'DD/MM/YYYY')), 
+(14,		to_timestamp('04/02/2014', 'DD/MM/YYYY'), 	to_timestamp('07/03/2014', 'DD/MM/YYYY')), 
+(15,		to_timestamp('08/03/2014', 'DD/MM/YYYY'), 	to_timestamp('08/04/2014', 'DD/MM/YYYY')), 
+(16,		to_timestamp('08/03/2014', 'DD/MM/YYYY'), 	to_timestamp('08/04/2014', 'DD/MM/YYYY')), 
+(17,		to_timestamp('08/03/2014', 'DD/MM/YYYY'), 	to_timestamp('08/04/2014', 'DD/MM/YYYY')), 
+(18,		to_timestamp('08/03/2014', 'DD/MM/YYYY'), 	to_timestamp('08/04/2014', 'DD/MM/YYYY')), 
+(19,		to_timestamp('08/03/2014', 'DD/MM/YYYY'), 	to_timestamp('08/04/2014', 'DD/MM/YYYY')), 
+(20,		to_timestamp('08/03/2014', 'DD/MM/YYYY'), 	to_timestamp('08/04/2014', 'DD/MM/YYYY')), 
+(40,		to_timestamp('03/10/2014', 'DD/MM/YYYY'), 	to_timestamp('03/11/2014', 'DD/MM/YYYY')), 
+(41,		to_timestamp('03/10/2014', 'DD/MM/YYYY'), 	to_timestamp('03/11/2014', 'DD/MM/YYYY')), 
+(43,		to_timestamp('03/10/2014', 'DD/MM/YYYY'), 	to_timestamp('03/11/2014', 'DD/MM/YYYY')), 
+(44,		to_timestamp('03/10/2014', 'DD/MM/YYYY'), 	to_timestamp('03/11/2014', 'DD/MM/YYYY')), 
+(45,		to_timestamp('03/10/2014', 'DD/MM/YYYY'), 	to_timestamp('03/11/2014', 'DD/MM/YYYY'));
+
+15) Exclua os colaboradores que não possuem nome.
+	delete from "Colaborador" where "nomeColaborador" is null;
+16) Crie uma consulta que busque os Colaboradores que possuem salario > 1500
+	select	col."nomeColaborador" as "Colaborador", 
+	"Cargo"."salarioBruto"
+	from "Colaborador" as col
+	inner join "Cargo"
+	on "Cargo"."idCargo" = col."idColaborador"
+	where "Cargo"."salarioBruto">1500;
+17) Crie uma consulta que busque os Colaboradores que possuem salario < 1300
+	select	col."nomeColaborador" as "Colaborador", 
+	"Cargo"."salarioBruto"
+	from "Colaborador" as col
+	inner join "Cargo"
+	on "Cargo"."idCargo" = col."idColaborador"
+	where "Cargo"."salarioBruto" <1300;
+18)Crie uma consulta que busque os Colaboradores que possuem desconto de salario > 500
+	select	col."nomeColaborador" as "Colaborador", 
+	"Cargo"."descontoSalario" 
+	from "Colaborador" as col
+	inner join "Cargo"
+	on "Cargo"."idCargo" = col."idColaborador"
+	where "Cargo"."descontoSalario"  > 500;
+19) Crie uma consulta que busque o nome dos colaboradores juntamente com seus cargos
+	select	col."nomeColaborador" as "Colaborador", 
+	"Cargo"."nomeCargo"
+	from "Colaborador" as col
+	inner join "Cargo"
+	on "Cargo"."idCargo" = col."idColaborador"
+	;
+20) Crie uma consulta que busque os colaboradores que possuem a palavra "Java" na descrição de seu cargo.
+	select	col."nomeColaborador" as "Colaborador", 
+	"Cargo"."nomeCargo"
+	from "Colaborador" as col
+	inner join "Cargo"
+	on "Cargo"."idCargo" = col."idColaborador"
+	where "Cargo"."nomeCargo" like '%Java%';
+
+21) Crie uma consulta dos Colaboradores que não tiveram férias
+	select	col."nomeColaborador" as "Colaborador"
+	from "Colaborador" as col
+	left join "Colaborador_Ferias" as cf
+	on cf."idColaborador" = col."idColaborador"
+	where cf."idColaborador" is null;
+22) Crie uma consulta que busque os colaboradores que  tiraram férias no mês de Janeiro de 2014
+	select	col."nomeColaborador" as "Colaborador", 
+	cf."data_saida"
+	from "Colaborador" as col
+	inner join "Colaborador_Ferias" as cf
+	on cf."idColaborador" = col."idColaborador"
+	where cf."data_saida" > to_timestamp('01/01/2014', 'DD/MM/YYYY') and 
+	cf."data_saida" < to_timestamp('31/01/2014', 'DD/MM/YYYY');
+23) Crie uma consulta que busque os colaboradores que  tiraram férias no mês de Março de 2014
+	select	col."nomeColaborador" as "Colaborador", 
+	cf."data_saida"
+	from "Colaborador" as col
+	inner join "Colaborador_Ferias" as cf
+	on cf."idColaborador" = col."idColaborador"
+	where cf."data_saida" > to_timestamp('01/03/2014', 'DD/MM/YYYY') and 
+	cf."data_saida" < to_timestamp('31/03/2014', 'DD/MM/YYYY');
+24) Crie uma consulta que busque os colaboradores que  tiraram férias no mês de outubro de 2014
+	select	col."nomeColaborador" as "Colaborador", 
+	cf."data_saida"
+	from "Colaborador" as col
+	inner join "Colaborador_Ferias" as cf
+	on cf."idColaborador" = col."idColaborador"
+	where cf."data_saida" > to_timestamp('01/10/2014', 'DD/MM/YYYY') and 
+	cf."data_saida" < to_timestamp('31/10/2014', 'DD/MM/YYYY');
+25) Crie uma consulta que busque os colaboradores que  tiraram férias em 2014
+	select	col."nomeColaborador" as "Colaborador", 
+	cf."data_saida"
+	from "Colaborador" as col
+	inner join "Colaborador_Ferias" as cf
+	on cf."idColaborador" = col."idColaborador"
+	where cf."data_saida" > to_timestamp('01/01/2014', 'DD/MM/YYYY') and 
+	cf."data_saida" < to_timestamp('31/12/2014', 'DD/MM/YYYY');
+26) Crie uma consulta que busque o cargo dos colaboradores que tiraram férias no mês de Março de 2014
+	select	col."nomeColaborador" as "Colaborador", 
+	cf."data_saida",
+	"Cargo"."nomeCargo"
+	from "Colaborador" as col
+	inner join "Colaborador_Ferias" as cf
+	on cf."idColaborador" = col."idColaborador"
+	inner join "Cargo"
+	on "Cargo"."idCargo" = col."idColaborador"
+	where cf."data_saida" > to_timestamp('01/03/2014', 'DD/MM/YYYY') and 
+	cf."data_saida" < to_timestamp('31/03/2014', 'DD/MM/YYYY');
+
+
+27) crie uma tabela Produtos com os campos id, nome, valor 
+create table "Produtos"(
+id int not null primary key,
+nome varchar (100),
+valor decimal(10,2)
+);
+
+28) insira os seguintes produtos
+insert into "Produtos" (id, nome, valor)
+values
+(1, 'Televisao LED 42', 1400.40), 
+(2, 'Televisao LED 32', 1250.30),
+(3, 'Aparelho de Jantar Tramontina', 800.0 ),
+(4, 'Playstation 4', 2400.40 ),
+(5, 'Playstation 3', 720.99 ),
+(6, 'Sofa ', 2400.60 	),
+(7, 'Fritadeira elétrica', 200 ),
+(8, 'Forno Microondas 20l', 630.90 ),
+(9, 'Banheira Hidromassagem G',19999.90 ),
+(10, 'Roupeiro 6 portas', 1110.10 ),
+(11, 'Notebook Del vostro', 2200.40 ),
+(12, 'IPhone 6S', 3500.23 );
+
+29) selecione os produtos com preço entre 1000 e 2000 
+	select * from "Produtos" where valor >1000 and valor < 2000	
+30) selecione os produtos ordenados de forma ascendente 
+	select * from "Produtos" order by nome asc
+31) selecione os produtos ordenados de forma descendente 
+	select * from "Produtos" order by nome desc
+32) selecione os produtos cujo nome tenha Televisao 
+	select * from "Produtos" where nome like '%Televisao %'
+33) selecione os produtos cujo nome tenha Playstation 
+	select * from "Produtos" where nome like '%Playstation %'
+34) selecione os produtos cujo nome tenha G
+	select * from "Produtos" where nome like '%G%'
+35) selecione os produtos ordenados pelo preço de forma ascendente 
+	select * from "Produtos" order by valor asc
+36) selecione os produtos ordenados pelo preço de forma descendente 
+	select * from "Produtos" order by valor desc
+37) Selecione a quantidade todal de produtos.
+	select count(id) from "Produtos" 
+38) Selecione a média de preços dos produtos
+	select round(avg(valor),2) from "Produtos" 
+39) Selecione a soma total dos preços dos produtos.
+	select round(sum(preco),2) from "Produtos" 
+40) Selecione o menor preço.
+	select min(preco) from "Produtos" 
+41) Selecione as informações do produto de menor preço.
+select * from "Produtos" where valor = (select min(valor) from "Produtos" )
+43) Selecione o maior preço.
+	select max(preco) from "Produtos" 
+44) Selecione o produto de maior preço.
+	select * from "Produtos" where valor = (select max(valor) from "Produtos" )
+45) Selecione os produtos com preço maior ou igual a média de preços.
+	select * from "Produtos" where valor > (select avg(valor) from "Produtos" )
+46) Selecione os produtos cujo o nome possua 6 ou mais caracteres.
+	select * from "Produtos" where length(nome)>6
+47) Selecione o nome, o preço, e o preço com desconto de todos os produtos. O preço com desconto deve ser calculado aplicando um desconto de 15% ao preço atual de cada produto.
+	select nome, valor, valor * 0.9 as "Valor com Desc" from "Produtos" 
+48)Selecione os 5 primeiros caracteres do nome de cada produto.
+        select substr(nome,1,5) from "Produtos"
+49)Selecione os produtos com valor baixo de 500 reais.
+        select * from "Produtos" where valor < 500
+50) selecione a média dos produtos que possuem o preço entre 100 e 1000 reais.
+        select round(avg(valor),2) from "Produtos" where valor < 1000 and preco >100

@@ -1438,13 +1438,22 @@ insert into "livros_tags" ("livroId",	"tagId")
 	(9,4),
 	(10,4)
 
+
+
+////////////////////////////////////////////////////////////////////////////
+Aula29 19/10/2018
+
 01) Selecione os livros juntamente com suas categorias
 	select	liv.titulo as titulo, 
 	cat.nome as categoria
 	from livros as liv
 	inner join "categorias" as cat
 	on liv."categoriaId" = cat.id;
-
+///ou
+	select	*
+	from livros as liv
+	inner join "categorias" as cat
+	on liv."categoriaid" = cat.id;
 
 02) Selecione os livros com suas tags
 	select	liv.titulo as titulo, 
@@ -1474,21 +1483,16 @@ A consulta deve trazer as informações do livro, categoria e seus autores.
 	aut.nome as autor, 
 	aut.sobrenome
 	from livros as liv
-	inner join "livros_tags" as lt
-	on lt."livroId" = liv.id
-	inner join "tags" as tg
-	on lt."tagId" = tg.id
-	inner join "categorias" as cat
-	on liv."categoriaid" = cat.id 
-	inner join "livros_autor" as la
-	on la."livroId" = liv.id
-	inner join "autor" as aut
-	on la."autorId" = aut.id	
+	inner join "livros_tags" as lt	on lt."livroId" = liv.id
+	inner join "tags" as tg	on lt."tagId" = tg.id
+	inner join "categorias" as cat	on liv."categoriaid" = cat.id 
+	inner join "livros_autor" as la	on la."livroId" = liv.id
+	inner join "autor" as aut on la."autorId" = aut.id	
 	where tg.nome = 'JAVA';
 
 05) Selecione a quantidade de livros agrupados por categoria
-	select	cat.nome,
-	count(cat.id)
+	select	cat.nome as "Categoria",
+	count(liv.id) as "Qtdd Livros"
 	from livros as liv
 	inner join "categorias" as cat
 	on liv."categoriaid" = cat.id
@@ -1496,7 +1500,7 @@ A consulta deve trazer as informações do livro, categoria e seus autores.
 
 06) Selecione a quantidade de livros agrupados por tag
 	select	tg.nome,
-	count(tg.id)
+	count(liv.id) 
 	from livros as liv
 	inner join "livros_tags" as lt
 	on lt."livroId" = liv.id
@@ -1507,7 +1511,7 @@ A consulta deve trazer as informações do livro, categoria e seus autores.
 07) Selecione a quantidade de livros agrupados por autor
 	select	aut.nome, 
 	aut.sobrenome,
-	count(aut.id)
+	count(liv.id) 
 	from livros as liv
 	inner join "livros_autor" as la
 	on la."livroId" = liv.id
@@ -1517,11 +1521,29 @@ A consulta deve trazer as informações do livro, categoria e seus autores.
 
 08) Selecione os autores que escreveram mais de um livro.
 	select	aut.nome, 
-	count(aut.id)
+	count(liv.id) 
 	from livros as liv
 	inner join "livros_autor" as la
 	on la."livroId" = liv.id
 	inner join "autor" as aut
 	on la."autorId" = aut.id
 	group by aut.nome
-	having count(aut.id)>1;
+	having count(liv.id)>1;
+
+/////////////////
+
+
+
+create table produtos(
+id serial not null primary key,
+preco decimal(10,2) not null);
+
+select preco, round(preco*1.50 ,2) as "preco Venda" from produtos 
+order by preco asc 
+//ou 
+order by preco desc 
+// limita o numero de buscas
+limit 2
+// pula os 3 primeiros registro e pega os 2 proximos
+offset 3 limit 2
+
