@@ -739,9 +739,9 @@ contatos em uma Lista em memória.
  os métodos da classe RepositorioContatoMemory.
 
 
-Aula 25 - 12/10/2018- Feriado
+12/10/2018- Feriado
 
-Aula 26 - 16/10/2018
+Aula 25 - 16/10/2018
 Banco de Dados Relacionais:
 Guardam os dados em forma de tabelas;
 Linhas x Colunas
@@ -958,7 +958,7 @@ select * from "Carros" where ano_modelo = 2015;
 37) Selecionar os carros de cor Prata
 select * from "Carros" where cor = 'Prata';
 
-Aula27 - 17/10/2018
+Aula26 - 17/10/2018
 https://www.postgresql.org/docs/9.3/static/
 select CURRENT_DATE, CURRENT_TIME, CURRENT_TIMESTAMP, LOCALTIME, LOCALTIMESTAMP
 
@@ -1185,7 +1185,7 @@ select marca, avg(ano) from veiculos group by marca having avg(ano) > 2012;
 select marca, modelo avg(ano) from veiculos group by marca, modelo having avg(ano) > 2012;
 select count(*),ano from veiculos group by ano;
 
-Aula 28 - 18/10/2018
+Aula 27 - 18/10/2018
 
 select to_char(now(), 'DD/MM/YYYY');
 https://www.postgresql.org/docs/current/static/functions-formatting.html
@@ -1441,7 +1441,7 @@ insert into "livros_tags" ("livroId",	"tagId")
 
 
 ////////////////////////////////////////////////////////////////////////////
-Aula29 19/10/2018
+Aula28 19/10/2018
 
 01) Selecione os livros juntamente com suas categorias
 	select	liv.titulo as titulo, 
@@ -1546,4 +1546,52 @@ order by preco desc
 limit 2
 // pula os 3 primeiros registro e pega os 2 proximos
 offset 3 limit 2
+ 
+
+Aula29 - 22/10/2018
+Acesso ao banco de dados pelo Eclipse
+
+Java - Objeto 
+Banco de Dados - Tabelas - Registros
+
+DAO = Data Access Object
+REPOSITORIO
+
+create table pessoas (
+id serial not null primary key,
+nome varchar(100) not null
+);
+insert into pessoas(nome)
+values
+('João'),('Maria'),('Adão'),('Eva'),('Paulo'),('Patricia'),('Ana'),('Marcos');
+
+
+===============
+Exercicio
+
+create table contatos(
+	id serial not null primary key,
+	nome varchar(100) not null,
+	email varchar(120) not null,
+	telefone varchar(11) not null
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
