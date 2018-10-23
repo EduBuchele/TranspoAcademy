@@ -1550,6 +1550,7 @@ offset 3 limit 2
 
 Aula29 - 22/10/2018
 Acesso ao banco de dados pelo Eclipse
+https://jdbc.postgresql.org/download.html#others
 
 Java - Objeto 
 Banco de Dados - Tabelas - Registros
@@ -1576,6 +1577,7 @@ create table contatos(
 	telefone varchar(11) not null
 );
 
+ALTER USER 	postgres WITH ENCRYPTED PASSWORD 'admin';
 
 
 
