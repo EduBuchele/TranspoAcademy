@@ -1579,10 +1579,63 @@ create table contatos(
 
 ALTER USER 	postgres WITH ENCRYPTED PASSWORD 'admin';
 
+Exercicio
+Crie um sistema para cadastro de Produtos.
+O sistema deve apresentar um menu com as opções abaixo e 
+deve conter a omlementação de todas as atividades necessárias
+para a realização das ações definidas no menu.
+
+1 - Cadastrar Produto
+2 - Listar Produtos
+3 - Listar Produtos por faixa de preco
+4 - Lista Produtos por Nome
+5 - Editar Produto
+6 - Remover Produto.
+
+Deve ser criado na base de dados curso uma tabela produtos
+contendo as seguintes colunas
+create table "Produtos"(
+id serial not null primary key,
+nome varchar(200) not null,
+preco decimal (20,1) not null
+);
+
+O sistema nao deve permitir o cadastro de produtos com o preço
+menor que 0.01
+
+O Sistema deve implementar uma interface RepositorioProduto
+interface RepositorioProduto{
+public List<Produto> buscarTodos();
+public List<Produto> buscarPorNome(String nome);
+public List<Produto> buscarPorPreco (double minimo, double maximo);
+public Produto buscarPorId();
+public void inserir(Produto produto);
+public void atualizar(Produto produto);
+public void remover (Integer id);
+public int contar();
 
 
+Aula31 - 24/10/2018
+create table pessoas(
+id serial not null primary key,
+nome varchar(100) not null
+);
 
-
+EntityManagerFactory
+	Gerencia as conexões com banco de dados
+@Entity
+	Representa uma tabela no banco de dados
+@Table(name="pessoas")
+	Indica o nome da tabela no banco de dados
+	é necessario colocar o table se a classe for diferente do nome da tabela
+@Id 
+	Indica que essa propriedade representa a chave primaria
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Informa que esse valor é generado auto pelo banco;
+	Serial = GenerationType.IDENTITY
+@Column
+	Indica que essa propriedade representa uma coluna no banco de dados
+	
 
 
 
