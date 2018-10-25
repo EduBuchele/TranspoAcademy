@@ -1635,14 +1635,27 @@ EntityManagerFactory
 	Serial = GenerationType.IDENTITY
 @Column
 	Indica que essa propriedade representa uma coluna no banco de dados
-	
+@Column(nullable=false, length=100, unique = true)
+	nullable = not null da coluna(não irá permitr nomes nulos)
+	length = tamanho do varchar(100) no banco
+	unique = não permite nomes iguais
 
+aula32 - 25/10/2018
+Ciclos de vidas Entidade
 
+      .> Persist >.	.> Commit >.
+Transient  <=>  Persistent  <=>  Detached
+      ^< Remove <^ 	^< Merge <^
+				"Termina" a sincronia
+Aplicação	Sincronia	Banco Dados
+				
 
-
-
-
-
+create table "TBL_Contatos" (
+id serial not null primary key,
+nome varchar(120) not null,
+email varchar(150) not null unique,
+telefone varchar(11) not null
+);
 
 
 

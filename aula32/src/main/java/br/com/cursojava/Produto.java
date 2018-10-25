@@ -8,24 +8,28 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pessoas")
-public class Pessoa {
+@Table(name="\"Produtos\"")
+public class Produto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
-	@Column(nullable = false, length = 100)
+	
+	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
+	private double preco;
 
-	public Pessoa() {
+	public Produto() {
 		super();
 	}
 
-	public Pessoa(Integer id, String nome) {
+	public Produto(Integer id, String nome, double preco) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.preco = preco;
 	}
 
 	public Integer getId() {
@@ -44,6 +48,14 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -60,7 +72,7 @@ public class Pessoa {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pessoa other = (Pessoa) obj;
+		Produto other = (Produto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -71,7 +83,7 @@ public class Pessoa {
 
 	@Override
 	public String toString() {
-		return "Pessoas [id=" + id + ", nome=" + nome + "]";
+		return "Produto [id=" + id + ", nome=" + nome + ", preco=" + preco + "]";
 	}
 
 }
