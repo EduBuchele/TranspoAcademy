@@ -1658,7 +1658,59 @@ telefone varchar(11) not null
 );
 
 
+Aula 33 - 26/10/2018
 
+create table enderecos(
+id serial not null primary key,
+rua varchar(200) not null,
+numero varchar(10)
+);
+
+create table funcionarios(
+id serial not null primary key,
+nome varchar(120) not null,
+"id_endereco" integer not null,
+foreign key("id_endereco") references enderecos(id)
+);
+
+
+@OneToOne
+@OneToOne(cascade=CascadeType.ALL)
+	cascade = faz com que ao remover ou persistir o funcionario ele altera o endereço
+		cascadeType tem varias opções, só persistir ou remover...
+@OneToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE)
+		a relaçao só funciona para persistir ou atualizar, caso remova o funcionario
+		o endereço continuará lá
+
+	fetch=FetchType.LAZY
+		Só vai fazer o join, quando for solicitado.
+	fetch=FetchType.EAGER
+		Faz o join, em todas as pesquisas, deixa o sistema lento em grandes DB
+@JoinColumn(name="id_endereco")
+	por padrão ele vai buscar endereco_id
+
+
+=============================================================
+Exercicio
+01) Crie uma tabela Owner com os seguintes atributos:
+create table "Owner" (
+id serial not null primary key,
+nome varchar(100) not null
+);
+
+02) Crie uma tabela Child com os seguintes atributos:
+create table "Child"(
+id serial not null primary key,
+nome varchar(100) not null,
+id_owner int not null,
+foreign key ("id_owner") references "Owner"(id)
+);
+
+03) Crie as classes de mapeamento de entidade para as tabelas:
+
+04) Crie um DAO para Child de forma que seja possivel realizar as operações de 
+incluir, atualizar, listarTodos, buscarPorId e remover
+OBS.:(Ao incluir um Child, seu Owner deve ser incluido, atualizado ou removido automaticamente)
 
 
 
