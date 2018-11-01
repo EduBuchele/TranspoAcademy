@@ -1712,6 +1712,161 @@ foreign key ("id_owner") references "Owner"(id)
 incluir, atualizar, listarTodos, buscarPorId e remover
 OBS.:(Ao incluir um Child, seu Owner deve ser incluido, atualizado ou removido automaticamente)
 
+//////////////////
+https://www.ibm.com/developerworks/community/blogs/fd26864d-cb41-49cf-b719-d89c6b072893/entry/como_criar_relacionamento_onetomany_com_hibernate?lang=en
+Relacionamentos
+Usando @OneToMany
+Agora vamos usar o relacionamento apropriado para a classe. A seguir, temos o code atualizado:
+
+@Entity
+public class Team  {
+ private String nameTeam;
+ @OneToMany(mappedBy = "team", targetEntity = Player.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+ private List<Player> players;
+MappedBy: informamos o nome da variável de instância que vai indicar a quem aquele One pertence, ou seja, um jogador; e ele deve dizer a qual time este está associado;
+TargetEntity: informa qual a entidade estamos associando;
+FetchType.Lazy: foi escolhido por performace;
+cascade: ALL para permitir alterações em todos os relacionamentos.
+
+Usando @ManyToOne
+Na classe que representa o MANY (do manyToOne), que nesse caso é a Player, teremos uma anotação @ManyToOne na variável de instância que representa o TEAM.
+
+@Entity
+public class Player {
+ @Id
+ @GeneratedValue
+ private long id;
+ private String nickName; 
+ @ManyToOne
+ @JoinColumn(name="team_id")
+ private Team team;
+@JoinColumn: informamos o nome que terá o FK.
+
+
+
+//////////////////////////////////////
+Criteria
+http://docs.jboss.org/hibernate/orm/5.3/javadocs/
+https://www.devmedia.com.br/hibernate-api-criteria-realizando-consultas/29627
+https://www.devmedia.com.br/hibernate-mapping-mapeando-relacionamentos-entre-entidades/29445
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Aula34 - 29/10/2018
+
+hibernate
+@Enumerated(EnumType.STRING)
+	guarda o nome string da ENUM
+	(EnumType.STRING)
+	guarda o numero da posição dela no ENUM, começando por 0
+
+@Temporal(TemporalType.TIMESTAMP)
+	Temporal = qual a forma que os dados serão guardados no banco.
+	TIMESTAMP = guarda data e hora,
+	TIME = só tempo
+	DATE = só as datas.
+@ElementCollection(targetClass = PerfilUsuario.class)
+	Para uma coleção de Strings, ou ENUM
+
+create table usuarios(
+	id serial not null primary key,
+    nome varchar(120) not null,
+    email varchar(120)not null unique
+);
+
+create table tarefas(
+	id serial not null primary key,
+    titulo varchar(25) not null,
+    tipo varchar(50) not null,
+    "criadoEm" timestamp not null,
+    "atualizadoEm" timestamp not null
+);
+@Entity
+@Table(name = "tarefas")
+public class Tarefa {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Column(nullable = false)
+	private String titulo;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo")
+	private StatusTarefa status;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "\"criadoEm\"")
+	private Date criadoEm;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "\"atualizadoEm\"")
+	private Date atualizadoEm;
+....
+public enum StatusTarefa {
+	NOVA, INICIADA, COM_PROBLEMAS, FINALIZADA}
+
+
+Aula35 - 30/10/2018
+
+Estudar
+HQL // Criteria
+
+select all
+select coluna 1, coluna2
+order by
+max
+min
+count
+avg
+join
+and
+or
+like
+>
+>=
+<
+<=
+<>
+group by
+
+
+insert into estado (nome, sigla) values ('Paraná', 'PR'), ('São Paulo', 'SP'), ('Santa Catarina', 'SC'), ('Minas Gerais', 'MG'), ('Mato Grosso do Sul', 'MS');
+insert into cidade (nome, idEstado, populacao) values ('Loanda' , 1, 151531), ('Paranavaí' , 1, 321321), ('Curitiba' , 1, 654654), ('Maringá' , 1, 564654), ('Umuarama' , 1, 54645);
+insert into cidade (nome, idEstado, populacao) values ('São Paulo' , 2, 1321515), ('Barueri' , 2, 32155), ('Osasco' , 2, 654654), ('Sorocoba' , 2, 5456);
+insert into cidade (nome, idEstado, populacao) values ('Florianópolis' , 3, 354864), ('Blumenau' , 3,514546);
+insert into cidade (nome, idEstado, populacao) values ('Belo Horizonte' , 4, 4564548), ('Uberlândia' , 4, 5456456), ('Sete Lagoas', 4, 56465);
+insert into cidade (nome, idEstado, populacao) values ('Campo Grande' , 5, 654655), ('Ponta Porã' , 5, 6545656), ('Dourados', 5, 546);
+
+
+Aula36 - 31/10/2018
+
+Brownser  ->  Request  -> Servidor
+HTML		http://192.168.32.10/book/boook.html	
+CSS
+jS
+
+
+Servidor  ->  response  -> Brownser
+JSP		HTML
+JSF
+NOE
+PEARL
+Python
+ASP.NET
+PHP
+Ruby
+
+Response
+
+
+
+
+
+
+
+
 
 
 
