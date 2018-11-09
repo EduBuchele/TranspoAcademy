@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Cidade implements Serializable {
+public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +22,12 @@ public class Cidade implements Serializable {
 	
 	private int populacao;
 
-	public Cidade() {
+	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cidade(Long idCidade, String nome, Estado estado) {
+	public Usuario(Long idCidade, String nome, Estado estado) {
 		super();
 		this.idCidade = idCidade;
 		this.nome = nome;
@@ -84,7 +84,7 @@ public class Cidade implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cidade other = (Cidade) obj;
+		Usuario other = (Usuario) obj;
 		if (idCidade == null) {
 			if (other.idCidade != null)
 				return false;

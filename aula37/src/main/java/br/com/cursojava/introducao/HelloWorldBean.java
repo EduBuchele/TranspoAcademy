@@ -26,4 +26,13 @@ public class HelloWorldBean {
 		return sdf.format(new Date());
 	}
 
+	public String salvar() {
+		if (this.nome != null && this.nome.length() >= 3) {
+			return "result?faces-redirect=true";
+		} else {
+			System.out.println("O nome não é valido");
+			return null;
+		}
+	}
+
 }

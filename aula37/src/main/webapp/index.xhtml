@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -12,12 +12,14 @@
 </h:head>
 <h:body>
 
-	<h3>JSF2.2 Hello World Example</h3>
-	<h:form>
-	Seu nome por Favor?
-	<h:inputText value="#{helloWorldBean.nome}"></h:inputText>
-		<h:commandButton value="enviar" action="result"></h:commandButton>
-	</h:form>
+<p:fieldset legend="JSF2.2 Hello World Example">
+	
+		<h:form>
+			<p:outputLabel>Seu nome por Favor? </p:outputLabel>
+			<p:inputText value="#{helloWorldBean.nome}"></p:inputText>
+			<p:commandButton value="enviar" action="#{helloWorldBean.salvar}"></p:commandButton>
+		</h:form>
+</p:fieldset>
 
 </h:body>
 </html>

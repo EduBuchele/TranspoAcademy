@@ -1861,12 +1861,66 @@ Ruby
 Response
 
 
+Aula38 - 05/11/2018
+Projeto
+tarefa
+usuario
+historico tarefa
+situação
+	Backlog
+	priorizada
+	em desenvolvimento
+	com problemas
+	finalizada
+
+
+Aula39 - 06/11/2018
+
+-- Criação tabela situação 
+create table situacao(
+	id serial not null primary key,
+	nome varchar(120) not null,
+	tipo varchar(120) not null, 
+	"dataHoraCriacao" timestamp not null, 
+	"dataHoraAtualizacao" timestamp not null,
+	"dataHoraRemocao" timestamp,
+	status varchar(100) not null
+	
+
+git clone https://github.com/felipedarosaoliveira/app-tarefas.git workspace-tarefas
+No Eclipse
+/File
+// Switch Workspace
+/// importar a pasta clonada do git 
 
 
 
+tempo de Execução
+Criação de Tabelas 15min
+Criação de Classe Repositorio com metodos	90min
+	public boolean inserir(T t);
+	public boolean atualizar(T t);
+	public boolean remover(int id);
+	public List<T> buscarTodos();
+	public T buscarPorId(int id);
+	public long contar();
 
 
+insert into projetos (nome, descricao, status, "dataHoraCriacao", "dataHoraAtualizacao", "dataHoraFim") 
+values
+	('proj01', 'descricao01', 'status01', to_timestamp('05/09/2018 23:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('05/09/2018 23:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('05/09/2018 23:59', 'DD/MM/YYYY HH24:MI')),
+	('proj02', 'descricao02', 'status02', to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'))
+	;
+         
+insert into usuarios(	nome,  email, senha, "dataHoraCriacao", "dataHoraAtualizacao", status) 
+values
+	('user01','email01@teste.com',	'senha01',to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'),'status01'),
+	('user02','email02@teste.com',	'senha02',to_timestamp('20/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('15/11/2018 00:59', 'DD/MM/YYYY HH24:MI'),'status01')
+	;
+ 
 
-
-
+insert into situacao (	nome,	tipo,	"dataHoraCriacao", "dataHoraAtualizacao","dataHoraRemocao",status ) 
+values	('sit01', 'situacao tipo01',to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'),'situacao Status01'),
+	('sit02', 'situacao tipo02',to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'),'situacao Status02')
+;
 

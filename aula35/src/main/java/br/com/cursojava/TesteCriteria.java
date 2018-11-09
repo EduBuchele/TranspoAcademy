@@ -105,13 +105,13 @@ public class TesteCriteria {
 //				System.out.println(results);
 
 		// count
-//				CriteriaBuilder cb = em.getCriteriaBuilder();
-//				CriteriaQuery<Long> cQuery = cb.createQuery(Long.class);
-//				Root<Cidade> c = cQuery.from(Cidade.class);
-//				cQuery.multiselect(cb.count(c.get("nome")));
-//				TypedQuery<Long> query = em.createQuery(cQuery);
-//				Long results = query.getSingleResult();
-//				System.out.println(results);
+				CriteriaBuilder cb = em.getCriteriaBuilder();
+				CriteriaQuery<Long> cQuery = cb.createQuery(Long.class);
+				Root<Estado> c = cQuery.from(Estado.class);
+				cQuery.multiselect(cb.count(c));
+				TypedQuery<Long> query = em.createQuery(cQuery);
+				Long results = query.getSingleResult();
+				System.out.println(results);
 
 		// AVG
 //		CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -182,34 +182,34 @@ public class TesteCriteria {
 //		for (Cidade cidades : results) {
 //			System.out.println("Cidade: " + cidades.getNome() + " Estado: " + cidades.getEstado().getNome() +" Pop. "+ cidades.getPopulacao());
 //		}
-		class Result{
-			Estado estado;
-			Long soma;
-			public Result() {
-				super();
-				// TODO Auto-generated constructor stub
-			}
-			public Result(Estado estado, Long soma) {
-				super();
-				this.estado = estado;
-				this.soma = soma;
-			}
-			
-			
-		}
-		
-		CriteriaBuilder builder = em.getCriteriaBuilder();
-		CriteriaQuery<Result> cQuery = builder.createQuery(Result.class);
-		Root<Cidade> cidade = cQuery.from(Cidade.class);
-		cQuery.multiselect(cidade.get("estado"), builder.sum(cidade.get("populacao")));
-		
-		cQuery.groupBy(cidade.get("estado"));
-		cQuery.orderBy(builder.asc(cidade.get("estado").get("id")));
-		TypedQuery<Result> query = em.createQuery(cQuery);
-		List<Result> results = query.getResultList();
-		for (Result cidades : results) {
-			System.out.println("Estado: " + cidades.estado + " Pop.: " + cidades.soma);
-		}
+//		class Result{
+//			Estado estado;
+//			Long soma;
+//			public Result() {
+//				super();
+//				// TODO Auto-generated constructor stub
+//			}
+//			public Result(Estado estado, Long soma) {
+//				super();
+//				this.estado = estado;
+//				this.soma = soma;
+//			}
+//			
+//			
+//		}
+//		
+//		CriteriaBuilder builder = em.getCriteriaBuilder();
+//		CriteriaQuery<Result> cQuery = builder.createQuery(Result.class);
+//		Root<Usuario> cidade = cQuery.from(Usuario.class);
+//		cQuery.multiselect(cidade.get("estado"), builder.sum(cidade.get("populacao")));
+//		
+//		cQuery.groupBy(cidade.get("estado"));
+//		cQuery.orderBy(builder.asc(cidade.get("estado").get("id")));
+//		TypedQuery<Result> query = em.createQuery(cQuery);
+//		List<Result> results = query.getResultList();
+//		for (Result cidades : results) {
+//			System.out.println("Estado: " + cidades.estado + " Pop.: " + cidades.soma);
+//		}
 
 	}
 }

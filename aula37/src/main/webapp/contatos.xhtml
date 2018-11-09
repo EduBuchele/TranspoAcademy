@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Contatos</title>
+</h:head>
+<h:body>
+
+	<h3>Meus Contatos</h3>
+	<div style="width: 600px; margin: 10px auto">
+		<h:form style="display:flex; flex-direction:column">
+			<h:outputLabel value="Nome" />
+			<h:inputText value="#{contatoBean.nome}"  />
+			<h:message for="nome"  />
+			<h:outputLabel value="Email" />
+			<h:inputText value="#{contatoBean.email}"  />
+			<h:outputLabel value="Telefone" />
+			<h:inputText value="#{contatoBean.telefone}" />
+
+			<h:commandButton value="Enviar" action="#{contatoBean.salvar()}"></h:commandButton>
+		<h:message  id="nome" />
+		</h:form>
+	</div>
+	<h:dataTable value="#{contatoBean.contatos}" var="atual"
+		style="width:600px; margin: 10px auto">
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+			#{atual.nome}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Email</f:facet>
+			#{atual.email}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Telefone</f:facet>
+			#{atual.telefone}
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>
