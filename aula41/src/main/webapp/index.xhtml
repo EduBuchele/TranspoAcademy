@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+</h:head>
+<ui:composition template="primeface/_template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<p:fieldset legend="Pagina Inicial">
+			<h:form id="form">
+
+
+
+				<p:dataList value="#{dataListView.cars3}" var="car" type="unordered"
+					itemType="none" paginator="true" rows="10" styleClass="paginated">
+					<f:facet name="header">
+            Paginator
+        </f:facet>
+					<p:commandLink update=":form:carDetail"
+						oncomplete="PF('carDialog').show()" title="View Detail"
+						styleClass="ui-icon pi pi-search"
+						style="float:left;margin-right:10px;margin-top:3px; color:#333333">
+						<f:setPropertyActionListener value="#{car}"
+							target="#{dataListView.selectedCar}" />
+						<h:outputText value="#{car.brand}, #{car.year}" />
+					</p:commandLink>
+					<h:outputText value="#{car.brand}, #{car.year}"
+						style="display:inline-block" />
+				</p:dataList>
+
+				<p:dialog header="Car Info" widgetVar="carDialog" modal="true"
+					showEffect="blind" hideEffect="explode" resizable="false">
+					<p:outputPanel id="carDetail" style="text-align:center;">
+						<p:panelGrid columns="2"
+							rendered="#{not empty dataListView.selectedCar}"
+							columnClasses="label,value">
+							<f:facet name="header">
+								<p:graphicImage
+									name="demo/images/car/#{dataListView.selectedCar.brand}-big.gif" />
+							</f:facet>
+
+							<h:outputText value="Id:" />
+							<h:outputText value="#{dataListView.selectedCar.id}" />
+
+							<h:outputText value="Year" />
+							<h:outputText value="#{dataListView.selectedCar.year}" />
+
+							<h:outputText value="Color:" />
+							<h:outputText value="#{dataListView.selectedCar.color}"
+								style="color:#{dataListView.selectedCar.color}" />
+
+							<h:outputText value="Price" />
+							<h:outputText value="$#{dataListView.selectedCar.price}" />
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+			</h:form>
+		</p:fieldset>
+	</ui:define>
+</ui:composition>
+
+
+
+
+</html>

@@ -1924,3 +1924,33 @@ values	('sit01', 'situacao tipo01',to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY 
 	('sit02', 'situacao tipo02',to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'), to_timestamp('10/09/2018 00:59', 'DD/MM/YYYY HH24:MI'),'situacao Status02')
 ;
 
+Tarefa de casa
+Fazer uma app com 2 itens de cada primeface ate multimidia
+
+Criação de branch
+
+https://github.com/felipedarosaoliveira/app-tarefas.git
+Estou no master e quero criar um novo branch
+git checkout -b nome-do-branch
+git status
+git add .
+git commit -m "atualização de Branch"
+git push origin eduardo-branch
+set push --set-upstream origin eduardo-branch
+
+git checkout master
+git pull origin master
+
+git checkout eduardo-branch
+git merge master
+//aki o arquivo esta na mesma estrutura do master
+
+
+// git config --global user.email"eduardobuchele@gmail.com"
+Selecionar o branch
+base master <= compare: eduardo-branch
+new pull request
+View PullRequest
+
+
+https://gyazo.com/b100f6888941a37e0924c802c82cdb41

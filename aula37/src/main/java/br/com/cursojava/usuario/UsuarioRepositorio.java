@@ -94,11 +94,10 @@ public class UsuarioRepositorio implements CrudRepository<Usuario> {
 		boolean resultado = false;
 		if (id >= 0) {
 			EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
-			em.getTransaction().begin();
-			Usuario user = buscarPorId(id);
-			if (user != null) {
+		
 				try {
-					em.remove(user);
+				em.getTransaction().begin();
+					em.remove(em.find(Usuario.class, id));
 					em.getTransaction().commit();
 					em.close();
 					resultado = true;
@@ -106,7 +105,7 @@ public class UsuarioRepositorio implements CrudRepository<Usuario> {
 					if (em != null && em.isOpen()) {
 						em.getTransaction().rollback();
 					}
-				}
+				
 			}
 		}
 		return resultado;

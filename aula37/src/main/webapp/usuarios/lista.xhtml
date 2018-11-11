@@ -46,7 +46,7 @@
 	<div class="main">
 		<div class="header">
 			<h3>Usuários</h3>
-			<h:outputLink value="./formUsuario.jsf">
+			<h:outputLink value="./formulario.jsf">
 				<f:param name="oid" value="novo"></f:param>
 			Novo
 		</h:outputLink>
@@ -72,7 +72,7 @@
 				<h:column>
 					<f:facet name="header">Opções</f:facet>
 					<h:outputLink value="./formulario.jsf">
-						<f:param name="id" value="#{usuario.id}"></f:param>
+						<f:param name="oid" value="#{atual.id}"></f:param>
 				Editar
 				</h:outputLink>
 				</h:column>

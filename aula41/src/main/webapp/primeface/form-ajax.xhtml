@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+</h:head>
+<ui:composition template="_template.xhtml">
+
+	<ui:define name="conteudo">
+	
+	<h:form>
+			<p:panel id="panel" header="Basic ">
+				<h:panelGrid columns="4" cellpadding="5">
+					<h:outputLabel for="name" value="Name:" style="font-weight:bold" />
+					<p:inputText id="name" value="#{ajaxcoreBasicView.text}" />
+					<p:commandButton value="Salvar" update="display" icon="ui-icon-disk" />
+					<h:outputText id="display" value="#{ajaxcoreBasicView.text}" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	
+	<h:form>
+			<p:panel id="panel" header="Validation">
+
+				<p:messages id="msgs" />
+
+				<h:panelGrid columns="3" cellpadding="5">
+					<p:outputLabel for="firstname" value="Nome:" />
+					<p:inputText id="firstname" value="#{ajaxcoreUserView.firstname}"
+						required="true" label="Firstname">
+						<f:validateLength minimum="2" />
+					</p:inputText>
+					<p:message for="firstname" display="icon" />
+
+					<p:outputLabel for="lastname" value="Sobrenome:" />
+					<p:inputText id="lastname" value="#{ajaxcoreUserView.lastname}"
+						label="Lastname" required="true">
+						<f:validateLength minimum="2" />
+						<p:ajax update="msgLastname" event="keyup" />
+					</p:inputText>
+					<p:message for="lastname" id="msgLastname" display="icon" />
+
+				</h:panelGrid>
+
+				<p:commandButton value="Save" update="panel"
+					action="#{ajaxcoreUserView.save}" icon="ui-icon-disk" />
+			</p:panel>
+		</h:form>
+		<p:panel id="panel" header="Ajax Framework - RemoteCommand">
+			<h:form>
+				<p:remoteCommand name="rc" update="msgs"
+					action="#{ajaxcoreRemoteCommandView.execute}" />
+
+				<p:growl id="msgs" showDetail="true" />
+				<p:commandButton type="button" onclick="rc()" value="Execute"
+					icon="ui-icon-circle-triangle-e" />
+			</h:form>
+		</p:panel>
+
+		
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+</html>

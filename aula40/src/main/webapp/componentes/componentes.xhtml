@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Componentes JSF</title>
+
+</h:head>
+<h:body>
+	<h3>
+		Componentes JSF
+		<h:outputFormat value="{0} conheça os principais componentes">
+			<f:param value="#{componentesBean.nome}"></f:param>
+
+		</h:outputFormat>
+	</h3>
+	<h:form>
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText value="Meu Cadastro"></h:outputText>
+			</f:facet>
+			
+			<h:outputLabel for="name">Nome</h:outputLabel>
+			<h:panelGroup>
+				<h:inputText id="nome" size="50" value="#{componentesBean.nome}"></h:inputText>
+				<h:outputText value="#{componentesBean.nome}"></h:outputText>
+			</h:panelGroup>
+			
+			<h:outputLabel for="senha">Senha</h:outputLabel>
+			<h:panelGroup>
+				<h:inputSecret id="senha" size="50" value="#{componentesBean.senha}"></h:inputSecret>
+				<h:outputText value="#{componentesBean.senha}"></h:outputText>
+			</h:panelGroup>
+			
+			<h:outputLabel for="descricao">Descrição</h:outputLabel>
+			<h:panelGroup>
+				<h:inputTextarea value="#{componentesBean.descricao}"
+					style="margin-left: 0px; margin-right: 0px; width: 376px;"></h:inputTextarea>
+				<h:outputText value="#{componentesBean.descricao}"></h:outputText>
+			</h:panelGroup>
+			
+			<h:panelGroup>
+			<h:outputLabel>Concluir </h:outputLabel>
+			<h:selectBooleanCheckbox value="#{componentesBean.concluido}"></h:selectBooleanCheckbox>
+			#{componentesBean.concluido}
+			</h:panelGroup>
+			
+			<p></p>
+			<h:outputLabel for="cidades">Cidades</h:outputLabel>
+			<h:selectOneListbox>
+				<f:selectItems value="#{componentesBean.cidades}">
+				</f:selectItems>
+			</h:selectOneListbox>
+			
+					<h:outputLabel for="cidades">Cidades</h:outputLabel>
+			<h:selectOneRadio>
+				<f:selectItems value="#{componentesBean.cidades}">
+				</f:selectItems>
+			</h:selectOneRadio>
+			
+						<h:outputLabel for="cidades">Cidades</h:outputLabel>
+			<h:selectOneMenu>
+				<f:selectItems value="#{componentesBean.cidades}">
+				</f:selectItems>
+			</h:selectOneMenu>
+			
+				<h:outputLabel for="cidades">Cidades</h:outputLabel>
+			<h:selectManyMenu>
+				<f:selectItems value="#{componentesBean.cidades}">
+				</f:selectItems>
+			</h:selectManyMenu>
+			
+			
+
+			<p></p>
+			<h:panelGroup>
+				<h:commandButton value="salvar" action="#{componentesBean.salvar()}"></h:commandButton>
+				<h:button value="Limpar"></h:button>
+			</h:panelGroup>
+		</h:panelGrid>
+	</h:form>
+	
+	<h:graphicImage width="300px" value="../resources/transpoBrasil/download.jpg"></h:graphicImage>
+
+</h:body>
+</html>

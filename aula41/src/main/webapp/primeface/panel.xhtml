@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+</h:head>
+<ui:composition template="_template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<p:panel id="panel1" header="Basic PanelGrid">
+
+			<p:panelGrid columns="2">
+				<f:facet name="header">
+					<p:graphicImage name="demo/images/misc/kobe.png" />
+				</f:facet>
+
+				<h:outputText value="Nome:" />
+				<h:outputText value="Felipe" />
+
+
+				<h:outputText value="Profissão:" />
+				<h:outputText value="Professor" />
+
+				<h:outputText value="Curso:" />
+				<h:outputText value="TranspoBrasil" />
+			</p:panelGrid>
+		</p:panel>
+		<p:panel id="panel2" header="Basic TabView">
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:tabView>
+				<p:tab title="Papai Noel">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:graphicImage url="/resources/imagens/papai.jpg" width="200px" height="100px" />
+						<h:outputText
+							value="Papai Noel ou Pai Natal ('Noël' é natal em francês) é uma figura lendária que, em muitas culturas ocidentais, traz presentes aos lares de crianças bem-comportadas na noite da Véspera de Natal, o dia 24 de dezembro, ou no Dia de São Nicolau (6 de dezembro)." />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Coelhinho da Páscoa">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:graphicImage url="/resources/imagens/coelho.jpg" width="200px" height="100px" />
+						<h:outputText
+							value="A tradição do Coelhinho da Páscoa foi trazida Natal para a América pelos imigrantes alemães, entre o final do século XVII e o início do século XVIII.[1] No sul do Brasil, nas regiões bilíngues, o Coelhinho da Páscoa também é chamado de Osterhoos no dialeto Riograndenser Hunsrückisch, e Osterhase no Alemão padrão." />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Saci Perere">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:graphicImage url="/resources/imagens/saci.jpg" width="200px" height="100px" />
+						<h:outputText
+							value="O saci é um negro jovem de uma perna só, portador de uma carapuça sobre a cabeça que lhe concede poderes mágicos. Sobre este último caractere, é de notar-se que, já na mitologia romana, registrava Petrônio, no Satiricon, cujo píleo conferia poderes ao íncubo e recompensas a quem o capturasse." />
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head />
+<h:body>
+	<div id="cabecalho">
+
+		<p:growl id="messages" showDetail="true" autoUpdate="true" />
+		<h:form>
+			<p:menubar>
+				<p:submenu label="Categorias" icon=" ui-icon-folder-collapsed">
+					<p:submenu label="Formularios" icon="ui-icon-pencil">
+						<p:menuitem value="AjaxCore" url="/primeface/form-ajax.xhtml" />
+						<p:menuitem value="Input/Output" url="/primeface/form-prime.xhtml" />
+					</p:submenu>
+					<p:menuitem value="Data" url="/primeface/data.xhtml" />
+					<p:menuitem value="Panel" url="/primeface/panel.xhtml" />
+					<p:menuitem value="Overlay" url="/primeface/overlay.xhtml" />
+					<p:menuitem value="Menu" url="/primeface/menu.xhtml" />
+					<p:menuitem value="Charts" url="/primeface/chart.xhtml" />
+					<p:menuitem value="Messages" url="/primeface/messages.xhtml" />
+					<p:separator />
+					<p:menuitem value="Pagina Inicial" url="/index.xhtml" />
+				</p:submenu>
+
+
+				<p:menuitem value="PrimeFaces" url="http://www.primefaces.org"
+					icon="ui-icon-info" />
+
+				<f:facet name="options">
+					<p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search" />
+					<h:form>
+
+
+							<p:outputLabel value="Escolha o Tema: "></p:outputLabel>
+						<p:themeSwitcher id="basic" style="width:165px"
+							value="#{temaBean.tema}">
+							<f:selectItems value="#{temaBean.temas}" var="tema"
+								itemLabel="#{tema}" itemValue="#{tema}" />
+							<f:ajax />
+						</p:themeSwitcher>
+
+
+					</h:form>
+				</f:facet>
+			</p:menubar>
+		</h:form>
+		<div id="Capa">
+			<p:graphicImage url="/resources/imagens/capa.jpg" id="imagemCapa"
+				width="1000px" height="300px"></p:graphicImage>
+		</div>
+		<h1>
+			<ui:insert name="titulo"></ui:insert>
+		</h1>
+	</div>
+
+	<div id="conteudo">
+		<ui:insert name="conteudo"></ui:insert>
+	</div>
+
+	<div id="rodape">
+		CursoJava TranspoBrasil copyright 2018
+		<ui:insert name="texto">
+		</ui:insert>
+	</div>
+</h:body>
+
+</html>
