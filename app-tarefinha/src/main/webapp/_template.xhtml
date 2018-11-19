@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
+</h:head>
+<h:body>
+
+	<div id="cabecalho">
+
+		<p:growl id="messages" showDetail="true" autoUpdate="true" />
+		<h:form>
+			<p:menubar>
+				<p:menuitem value="Pagina Inicial" url="/index.xhtml"
+					icon="fa fa-home " />
+
+				<p:submenu label="Projeto" icon=" ui-icon-folder-collapsed">
+					<p:submenu label="Tarefas" icon="	fa fa-newspaper-o">
+						<p:menuitem value="Lista" url="/primeface/form-ajax.xhtml"
+							icon="fa fa-fw fa-address-card" />
+						<p:menuitem value="Cadastro" url="/primeface/form-prime.xhtml"
+							icon="		fa fa-keyboard" />
+					</p:submenu>
+
+					<p:separator />
+					<p:menuitem value="Logout" url="/index.xhtml" icon="fa fa-home" />
+				</p:submenu>
+
+
+
+
+
+				<p:submenu label="Projetos" icon="ui-icon-document">
+
+					<p:menuitem value="Lista Projetos" url="/projetos/lista.xhtml"
+						icon="fa fa-fw fa-align-justify" />
+					<p:menuitem value="Cadastro Projetos"
+						url="/projetos/formulario.xhtml" icon="fa fa-fw fa-keyboard" />
+				</p:submenu>
+				<p:submenu label="Tarefas" icon="ui-icon-note">
+					<p:menuitem value="Lista Tarefas" url="/tarefas/lista.xhtml"
+						icon="fa fa-fw fa-align-justify" />
+					<p:menuitem value="Cadastro Tarefas"
+						url="/tarefas/formulario.xhtml" icon="fa fa-fw fa-keyboard" />
+				</p:submenu>
+				<p:submenu label="Situação" icon="ui-icon-star">
+					<p:menuitem value="Lista Situações" url="/situacoes/lista.xhtml"
+						icon="fa fa-fw fa-align-justify" />
+					<p:menuitem value="Cadastro Situações"
+						url="/situacoes/formulario.xhtml" icon="fa fa-fw fa-keyboard" />
+				</p:submenu>
+				<p:submenu label="Usuários" icon="ui-icon-person">
+					<p:menuitem value="Lista Usuários" url="/usuarios/lista.xhtml"
+						icon="fa fa-fw fa-align-justify" />
+					<p:menuitem value="Cadastro Usuários"
+						url="/usuarios/formulario.xhtml" icon="fa fa-fw fa-keyboard" />
+					<p:menuitem value="Login" url="/login.xhtml"
+						icon="fa fa-fw fa-key" />
+				</p:submenu>
+
+
+
+				<f:facet name="options" style="margin:1px 10px 1px 1px">
+					<h:form style="text-align:center"
+						rendered="#{usuarioLogado != null}">
+						<p:outputLabel value="Escolha o Tema: "></p:outputLabel>
+						<p:themeSwitcher id="basic" style="width:165px"
+							value="#{temaBean.tema}">
+							<f:selectItems value="#{temaBean.temas}" var="tema"
+								itemLabel="#{tema}" itemValue="#{tema}" />
+							<f:ajax />
+						</p:themeSwitcher>
+
+
+					</h:form>
+				</f:facet>
+			</p:menubar>
+		</h:form>
+
+		<h1>
+			<ui:insert name="titulo"></ui:insert>
+		</h1>
+	</div>
+
+	<div id="conteudo">
+		<ui:insert name="conteudo"></ui:insert>
+
+	</div>
+
+	<div id="rodape">
+		CursoJava TranspoBrasil copyright 2018
+		<ui:insert name="texto">
+		</ui:insert>
+	</div>
+</h:body>
+
+</html>

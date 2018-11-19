@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+</h:head>
+<ui:composition template="/_template.xhtml">
+
+	<ui:define name="conteudo">
+		<p:panel header="Contadores" style="text-align:center">
+			<p:panelGrid columns="4" layout="grid">
+
+				<p:column style="width:25%">
+					<ui:include src="/utils/componenteContador.xhtml">
+						<ui:param name="tituloContador" value="BACKLOG"></ui:param>
+						<ui:param name="quantidade"
+							value="#{tarefaBean.contador('BACKLOG')}"></ui:param>
+					</ui:include>
+				</p:column>
+				<p:column style="width:25%">
+					<ui:include src="/utils/componenteContador.xhtml">
+						<ui:param name="tituloContador" value="PRIORIZADA"></ui:param>
+						<ui:param name="quantidade"
+							value="#{tarefaBean.contador('PRIORIZADA')}"></ui:param>
+					</ui:include>
+				</p:column>
+				<p:column style="width:25%">
+					<ui:include src="/utils/componenteContador.xhtml">
+						<ui:param name="tituloContador" value="DESENVOLVIMENTO"></ui:param>
+						<ui:param name="quantidade"
+							value="#{tarefaBean.contador('DESENVOLVIMENTO')}"></ui:param>
+					</ui:include>
+				</p:column>
+				<p:column style="width:25%">
+					<ui:include src="/utils/componenteContador.xhtml">
+						<ui:param name="tituloContador" value="CONCLUIDA"></ui:param>
+						<ui:param name="quantidade"
+							value="#{tarefaBean.contador('CONCLUIDA')}"></ui:param>
+					</ui:include>
+				</p:column>
+			</p:panelGrid>
+		</p:panel>
+
+		<p:panel header="Tarefas" style="text-align:center">
+
+
+
+			<p:panelGrid columns="4" layout="grid">
+				<p:column style="width:25%">
+					<ui:include src="/utils/componenteTabelaTarefa.xhtml">
+						<ui:param name="categoria" value="BACKLOG"></ui:param>
+					</ui:include>
+				</p:column>
+				<p:column style="width:25%">
+					<ui:include src="/utils/componenteTabelaTarefa.xhtml">
+						<ui:param name="categoria" value="PRIORIZADA"></ui:param>
+					</ui:include>
+				</p:column>
+				<p:column style="width:25%">
+					<ui:include src="/utils/componenteTabelaTarefa.xhtml">
+						<ui:param name="categoria" value="DESENVOLVIMENTO"></ui:param>
+					</ui:include>
+				</p:column>
+				<p:column style="width:25%">
+					<ui:include src="/utils/componenteTabelaTarefa.xhtml">
+						<ui:param name="categoria" value="CONCLUIDA"></ui:param>
+					</ui:include>
+				</p:column>
+			</p:panelGrid>
+
+			<f:facet name="actions">
+				<h:form>
+					<h:outputLink value="./tarefas/formulario.jsf">
+						<f:param name="oid" value="novo"></f:param>
+						Nova Tarefa
+					</h:outputLink>
+				</h:form>
+			</f:facet>
+		</p:panel>
+
+
+	</ui:define>
+</ui:composition>
+
+
+
+
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+</h:head>
+<h:body>
+	<div align="center">
+		<h:form>
+			<p:dataTable id="tabelaTarefas"
+					value="#{tarefaBean.tarefasCategoria(categoria)}" var="atual">
+					<f:facet name="header">#{categoria}</f:facet>
+					
+					<p:column >
+						<ui:include src="/utils/componenteTarefa.xhtml">
+							<ui:param name="tituloTarefa" value="#{atual.nome} - Id:#{atual.id} "></ui:param>
+							<ui:param name="nomeUsuario" value="#{atual.usuario.nome}"></ui:param>
+							<ui:param name="nomeProjeto" value="#{atual.projeto.nome}"></ui:param>
+							<ui:param name="id" value="#{atual.id}"></ui:param>
+							<ui:param name="bean" value="#{tarefaBean}"></ui:param>
+						</ui:include>
+
+					</p:column>
+				</p:dataTable>
+		</h:form>
+
+	</div>
+</h:body>
+</html>
