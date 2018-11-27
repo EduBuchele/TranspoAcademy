@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../template-listagem.xhtml">
+	<ui:param name="headerTitle" value="Projetos"></ui:param>
+	<ui:param name="breadcrumb" value="#{projetoBean.breadcrumb}"></ui:param>
+	<ui:define name="content">
+		<h:messages></h:messages>
+		<p:dataTable id="lista" value="#{projetoBean.projetos}" var="atual" sortBy="#{atual.id}">
+			<p:column>
+				<f:facet name="header">Id</f:facet>
+					#{atual.id}	
+				</p:column>
+			<p:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputLink value="./formulario.jsf">
+					<f:param name="oid" value="#{atual.id}"></f:param>
+					#{atual.nome}
+					</h:outputLink>
+			</p:column>
+			<p:column>
+				<f:facet name="header">Descrição</f:facet>
+					#{atual.descricao}	
+				</p:column>
+		</p:dataTable>
+	</ui:define>
+</ui:composition>
+</html>
+

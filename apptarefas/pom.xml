@@ -3,11 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.cursojava</groupId>
-	<artifactId>app-tarefinha</artifactId>
+	<artifactId>apptarefas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>app-tarefinha</name>
+	<name>app-tarefas</name>
+
+
 	<dependencies>
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -26,7 +28,7 @@
 			<artifactId>primefaces</artifactId>
 			<version>6.2</version>
 		</dependency>
-
+		
 		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -71,19 +73,11 @@
 			<type>maven-plugin</type>
 		</dependency>
 
-		<dependency>
-			<groupId>org.primefaces.extensions</groupId>
-			<artifactId>all-themes</artifactId>
-			<version>1.0.8</version>
-		</dependency>
-
 	</dependencies>
-
-
 
 	<build>
 		<outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
-		<finalName>cursojava</finalName>
+		<finalName>app-tarefas</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -122,5 +116,5 @@
 		</plugins>
 
 	</build>
-
+	<packaging>war</packaging>
 </project>

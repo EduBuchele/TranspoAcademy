@@ -1954,3 +1954,22 @@ View PullRequest
 
 
 https://gyazo.com/b100f6888941a37e0924c802c82cdb41
+
+aula50 - 27/11/2018
+REST
+REpresentational State Transfer
+WebServers modelo/forma de comunicação de Serviços WEB
+SOUP	REST
+
+GET -> busca dados
+POST -> envia dados
+PUT -> "editar dados"
+DELETE -> "remover dados"
+OPTIONS
+HEAD
+PATCH
+
+JSON / XML
+JAXRS -> Jersey
+
+
