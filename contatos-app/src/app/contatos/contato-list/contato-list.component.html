@@ -1,0 +1,38 @@
+<div>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Contatos
+        </h1>
+        <h2 class="subtitle">
+          Lista de Contatos
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <div class="box">
+    <a class="button is-primary" [routerLink]="['novo']">Novo</a>
+    <table class="table is-bordered table is-striped table is-hoverable table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contato of contatos">
+          <td>{{contato.id}}</td>
+          <td><a [routerLink]="[contato.id]">{{contato.nome}}</a></td>
+          <td>{{contato.email}}</td>
+          <td>{{contato.telefone}}</td>
+          <td><button class="button is-danger" (click)="remover(contato.id)">Remover</button></td>
+      </tbody>
+    </table>
+  </div>
+
+</div>

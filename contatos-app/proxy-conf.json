@@ -1,0 +1,9 @@
+{
+"/api": {
+    "target":"http://localhost:8080/aula51",
+    "secure": false,
+    "changeOrigin": true,
+    "loglevel":"info"
+}
+
+}

@@ -1972,4 +1972,26 @@ PATCH
 JSON / XML
 JAXRS -> Jersey
 
+Aula51
+Comandos NODE
+node -v
+npm install -g @angular/cli
+ng new contatos-app
+Y
+CSS
+cd contatos-app
+ng serve --proxy-config proxy-conf.json
+
+geração de componentes
+	ng g c contato-form
+geração de serviço
+ng g s contato
+
+REACT/ANGULAR/VUEJS
+SPA - AJAX
+
+Framework CSS 
+npm install --save bulma
+
+
 
