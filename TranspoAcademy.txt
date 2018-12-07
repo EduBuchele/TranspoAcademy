@@ -1994,4 +1994,64 @@ Framework CSS
 npm install --save bulma
 
 
+Aula 53 - 04/12
+
+-	import dos projetos no eclipse
+- 	criar um java-project PAI =>app-parent 
+			convert maven project
+			group id  => br.com.cursojava
+			packiging => POM
+- adicionar os modulos no POM
+	<modules>
+	  <module>../nome do caminho do filho</module>
+	</modules>
+  <modules>
+ 	  <module>../apptarefas</module>
+	  <module>../app-tarefas-dao</module>
+	  <module>../app-tarefas-facade</module>
+	  <module>../apptarefas-endpoint-rest</module>
+  </modules>
+- ir em cada filho e determinar o pai dele
+	pom.xml
+	<parent>
+		<groupId>br.com.cursojava</groupId>
+		<artifactId>app-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../app-parent/pom.xml</relativePath>
+	</parent>
+- interligar os modulos
+	app-tarefas depende do facade
+	<dependency>
+			<groupId>br.com.cursojava</groupId>
+			<artifactId>app-tarefas-facade</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+- gerar os jar
+botao direito
+ RUN
+	maven install
+
+repositorio
+entidade
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
